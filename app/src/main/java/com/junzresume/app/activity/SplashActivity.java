@@ -1,12 +1,12 @@
 package com.junzresume.app.activity;
 
-import com.junzresume.app.R;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 import android.widget.ImageView;
+
+import com.junzresume.app.R;
 
 public class SplashActivity extends BaseActivity {
 	long delayTime = 3 * 1000;
@@ -16,7 +16,7 @@ public class SplashActivity extends BaseActivity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		ImageView splash = new ImageView(this);
-		splash.setBackgroundResource(R.drawable.splash);
+		splash.setBackgroundResource(R.drawable.splash_bgp);
 		setContentView(splash);
 
 		new Handler().postDelayed(new Runnable() {
@@ -24,7 +24,8 @@ public class SplashActivity extends BaseActivity {
 			@Override
 			public void run() {
 				startActivity(new Intent(SplashActivity.this,
-						MainActivity.class));
+						LoginActivity.class));
+				finish();
 
 			}
 		}, delayTime);

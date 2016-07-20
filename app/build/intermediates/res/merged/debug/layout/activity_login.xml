@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bgp" >
+
+    <TextView
+        android:id="@+id/login_junzresume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingBottom="30dp"
+        android:paddingTop="20dp"
+        android:text="@string/login_title"
+        android:textColor="#fff"
+        android:textSize="30sp" />
+
+    <TableLayout
+        android:id="@+id/login_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_junzresume"
+        android:stretchColumns="1" >
+
+        <TableRow
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="@string/user_name"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/user_name"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_username" />
+        </TableRow>
+
+        <TableRow
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:text="@string/user_pwd"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/user_pwd"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_userpwd"
+                android:inputType="textPassword" />
+        </TableRow>
+    </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_info"
+        android:padding="15dp" >
+
+        <LinearLayout
+            android:id="@+id/remeber_pwd_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/remeber_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remeber_pwd"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/login_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="30dp"
+                android:background="@drawable/style_circle_btn"
+                android:text="@string/login"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/regist_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/style_circle_btn"
+                android:text="@string/regist"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout><!-- From: file:/E:/Java/Android%20Sapce/JunzResume1/app/src/main/res/layout/activity_login.xml -->
