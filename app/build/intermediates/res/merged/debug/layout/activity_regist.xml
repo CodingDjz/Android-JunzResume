@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/regist_bgp" >
+
+    <TextView
+        android:id="@+id/regist_junzresume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingBottom="30dp"
+        android:paddingTop="20dp"
+        android:text="@string/regist_title"
+        android:textColor="#fff"
+        android:textSize="30sp" />
+
+    <TableLayout
+        android:id="@+id/regist_tablelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/regist_junzresume"
+        android:stretchColumns="1" >
+
+        <TableRow
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_name"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/regist_user_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_regist_account" />
+        </TableRow>
+
+        <TableRow
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_pwd"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/regist_user_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_regist_pwd"
+                android:inputType="textPassword" />
+        </TableRow>
+
+        <TableRow
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/confirm_pwd"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/regist_user_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_confirm_pwd"
+                android:inputType="textPassword" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/regist_tablelayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" >
+
+        <Button
+            android:id="@+id/regist_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/style_circle_btn"
+            android:text="@string/regist_btn"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/reset_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/style_circle_btn"
+            android:text="@string/reset"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</RelativeLayout><!-- From: file:/E:/Java/Android%20Sapce/JunzResume1/app/src/main/res/layout/activity_regist.xml -->

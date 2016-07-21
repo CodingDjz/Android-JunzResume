@@ -32,7 +32,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/user_name"
+                android:id="@+id/user_account"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_username" />
         </TableRow>
@@ -77,29 +77,35 @@
                 android:layout_height="wrap_content"
                 android:text="@string/remeber_pwd"
                 android:textSize="20sp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/login_btn_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/remeber_pwd_linear" >
 
             <Button
                 android:id="@+id/login_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="30dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
                 android:background="@drawable/style_circle_btn"
                 android:text="@string/login"
                 android:textColor="#fff"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
+        </RelativeLayout>
 
-            <Button
-                android:id="@+id/regist_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="15dp"
-                android:background="@drawable/style_circle_btn"
-                android:text="@string/regist"
-                android:textColor="#fff"
-                android:textSize="16sp" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/regist_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/remeber_pwd_linear"
+            android:layout_below="@+id/remeber_pwd_linear"
+            android:text="@string/regist"
+            android:background="@drawable/style_text_btn"
+            android:textSize="19sp" />
     </RelativeLayout>
 
 </RelativeLayout>
