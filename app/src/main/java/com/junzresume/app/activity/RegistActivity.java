@@ -1,13 +1,14 @@
 package com.junzresume.app.activity;
 
-import com.junzresume.app.R;
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.junzresume.app.R;
+import com.junzresume.app.db.JunzResumeDB;
 
 public class RegistActivity extends BaseActivity implements OnClickListener {
 
@@ -39,28 +40,60 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 		resetBtn.setOnClickListener(this);
 	}
 
+	/**
+	 * 按钮监听方法
+	 */
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.regist_btn:
-			String accountText = account.getText().toString();
-			String passwordText = password.getText().toString();
-			String confirmText = confirmPwd.getText().toString();
-			if ("".equals(accountText) || "".equals(passwordText)
-					|| "".equals(confirmText)) {
-				Toast.makeText(this, "注册信息不能为空", Toast.LENGTH_SHORT).show();
-				return;
-			}
-			if (passwordText.equals(confirmText)) {
-				Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
-
-			}
+			registAction();
 			break;
-
-		default:
-			break;
+		case R.id.reset_btn:
+			resetAction();
 		}
 
+	}
+
+	/**
+	 * “注册”按钮触发事件
+	 */
+	private void registAction() {
+		String accountText = account.getText().toString();
+		String passwordText = password.getText().toString();
+		String confirmText = confirmPwd.getText().toString();
+		if ("".equals(accountText) || "".equals(passwordText)
+				|| "".equals(confirmText)) {
+			Toast.makeText(this, R.string.registinfo_null, Toast.LENGTH_SHORT)
+					.show();
+			return;
+		}
+		if (!passwordText.equals(confirmText)) {
+			Toast.makeText(this, R.string.password_not_match,
+					Toast.LENGTH_SHORT).show();
+			return;
+		}
+		boolean canRegist = JunzResumeDB.getInstence(this).userRegistCheck(
+				accountText);
+		if (!canRegist) {
+			Toast.makeText(this, R.string.exist_account, Toast.LENGTH_SHORT)
+					.show();
+			return;
+		}
+		JunzResumeDB.getInstence(this).userRegist(accountText, passwordText);
+		Toast.makeText(this, R.string.regist_success, Toast.LENGTH_SHORT)
+				.show();
+		finish();
+
+	}
+
+	/**
+	 * “重置”按钮触发事件
+	 */
+	private void resetAction() {
+		account.setText("");
+		password.setText("");
+		confirmPwd.setText("");
 	}
 
 }

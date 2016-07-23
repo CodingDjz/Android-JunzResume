@@ -42,9 +42,8 @@ public class JunzResumeDB {
 	 * @param password
 	 * @return 用户名密码是否正确
 	 */
-	public boolean verifyUser(String account, String password) {
-		String sql = "SELECT password FROM USER WHERE account=" + account;
-		Cursor cursor = db.rawQuery(sql, null);
+	public boolean userLoginCheck(String account, String password) {
+		Cursor cursor = getResultByAccountCheck(account);
 		if (cursor != null && cursor.moveToFirst()) {
 			do {
 				String dbPwd = cursor.getString(cursor
@@ -55,5 +54,22 @@ public class JunzResumeDB {
 
 		}
 		return false;
+	}
+
+	/**
+	 * 用户是否存在
+	 * 
+	 * @return
+	 */
+	public boolean userRegistCheck(String account) {
+		Cursor cursor = getResultByAccountCheck(account);
+		if (cursor.getCount() == 0)
+			return true;
+		return false;
+	}
+
+	public Cursor getResultByAccountCheck(String account) {
+		String sql = "SELECT password FROM USER WHERE account=" + account;
+		return db.rawQuery(sql, null);
 	}
 }

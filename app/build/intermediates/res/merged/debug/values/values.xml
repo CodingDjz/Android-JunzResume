@@ -6,19 +6,25 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- From: file:/E:/Java/Android%20Sapce/JunzResume1/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="account_pwd_null">用户名或密码不能为空</string>
+    <string name="account_pwd_wrong">用户名或密码错误</string>
     <string name="action_settings">Settings</string>
     <string name="app_name">君之简历</string>
     <string name="confirm_pwd">确认密码:</string>
-    <string name="hint_confirm_pwd">请确认登录密码</string>
-    <string name="hint_regist_account">输入登录用户名</string>
-    <string name="hint_regist_pwd">输入登录密码</string>
+    <string name="exist_account">用户名已存在</string>
+    <string name="hint_confirm_pwd">确认密码</string>
+    <string name="hint_regist_account">用户名</string>
+    <string name="hint_regist_pwd">密码</string>
     <string name="hint_username">输入账号</string>
     <string name="hint_userpwd">输入密码</string>
     <string name="login">登录</string>
     <string name="login_title">启程</string>
+    <string name="password_not_match">两次密码不一致</string>
     <string name="regist"><u>注册用户</u></string>
     <string name="regist_btn">注册</string>
+    <string name="regist_success">注册成功</string>
     <string name="regist_title">构建</string>
+    <string name="registinfo_null">注册信息不能为空</string>
     <string name="remeber_pwd">记住密码</string>
     <string name="reset">重置</string>
     <string name="user_name">账号:</string>

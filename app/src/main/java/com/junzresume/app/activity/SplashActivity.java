@@ -9,14 +9,14 @@ import android.widget.ImageView;
 import com.junzresume.app.R;
 
 public class SplashActivity extends BaseActivity {
-	long delayTime = 3 * 1000;
+	long delayTime = 5 / 2 * 1000;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		ImageView splash = new ImageView(this);
-		splash.setBackgroundResource(R.drawable.splash_bgp);
+		splash.setBackgroundResource(R.drawable.splash_bgp3);
 		setContentView(splash);
 
 		new Handler().postDelayed(new Runnable() {
