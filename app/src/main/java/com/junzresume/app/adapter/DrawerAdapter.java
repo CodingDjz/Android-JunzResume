@@ -1,8 +1,5 @@
 package com.junzresume.app.adapter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +11,9 @@ import android.widget.TextView;
 import com.junzresume.app.R;
 import com.junzresume.app.entity.DrawerItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DrawerAdapter extends BaseAdapter {
 
 	List<DrawerItem> MenuItems;
@@ -23,10 +23,10 @@ public class DrawerAdapter extends BaseAdapter {
 		this.context = context;
 		MenuItems = new ArrayList<>();
 		MenuItems.add(new DrawerItem(R.drawable.person_image, ""));
-		MenuItems.add(new DrawerItem(R.drawable.person_info, "¸öÈËÐÅÏ¢"));
-		MenuItems.add(new DrawerItem(R.drawable.professional_skills, "×¨Òµ¼¼ÄÜ"));
-		MenuItems.add(new DrawerItem(R.drawable.program_exp, "¹¤×÷¾­Ñé"));
-		MenuItems.add(new DrawerItem(R.drawable.interesting_hobbies, "ÐËÈ¤°®ºÃ"));
+		MenuItems.add(new DrawerItem(R.drawable.person_info, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢"));
+		MenuItems.add(new DrawerItem(R.drawable.professional_skills, "×¨Òµï¿½ï¿½ï¿½ï¿½"));
+		MenuItems.add(new DrawerItem(R.drawable.program_exp, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"));
+		MenuItems.add(new DrawerItem(R.drawable.interesting_hobbies, "ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½"));
 	}
 
 	@Override

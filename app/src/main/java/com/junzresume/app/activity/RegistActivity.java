@@ -41,7 +41,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * °´Å¥¼àÌı·½·¨
+	 * æŒ‰é’®ç›‘å¬æ–¹æ³•
 	 */
 	@Override
 	public void onClick(View v) {
@@ -56,7 +56,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * ¡°×¢²á¡±°´Å¥´¥·¢ÊÂ¼ş
+	 * â€œæ³¨å†Œâ€æŒ‰é’®è§¦å‘äº‹ä»¶
 	 */
 	private void registAction() {
 		String accountText = account.getText().toString();
@@ -88,7 +88,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * ¡°ÖØÖÃ¡±°´Å¥´¥·¢ÊÂ¼ş
+	 * â€œé‡ç½®â€æŒ‰é’®è§¦å‘äº‹ä»¶
 	 */
 	private void resetAction() {
 		account.setText("");
