@@ -71,7 +71,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * ç™»å½•æŒ‰é’®è§¦å‘äº‹ä»¶
+	 * µÇÂ¼°´Å¥´¥·¢ÊÂ¼ş
 	 */
 	private void loginAction() {
 		String accountText = account.getText().toString();
@@ -92,7 +92,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * è¿›å…¥æ³¨å†Œç•Œé¢
+	 * ½øÈë×¢²á½çÃæ
 	 */
 	private void registAction() {
 
@@ -100,13 +100,13 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * ä¿å­˜è®°ä½çš„å¯†ç 
+	 * ±£´æ¼Ç×¡µÄÃÜÂë
 	 */
 	private void remeberPwdSave() {
 		SharedPreferences.Editor editor = getSharedPreferences(
 				"remeber_password", MODE_PRIVATE).edit();
 		if (!remeberPwd.isChecked()) {
-			// æ¸…é™¤ä¹Ÿè¦commit
+			// Çå³ıÒ²Òªcommit
 			editor.clear();
 		} else {
 			String accountText = account.getText().toString();
@@ -118,7 +118,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * è·å¾—ä¿å­˜çš„è´¦å·å¯†ç 
+	 * »ñµÃ±£´æµÄÕËºÅÃÜÂë
 	 */
 	private void getRemberPwd() {
 		SharedPreferences pref = getSharedPreferences("remeber_password",

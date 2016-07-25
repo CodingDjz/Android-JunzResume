@@ -3,4 +3,4 @@
 
     <item android:drawable="@android:color/holo_orange_dark" android:state_pressed="true"/>
     <item android:drawable="@android:color/holo_orange_dark" android:state_focused="true"/>
-</selector><!-- From: file:/E:/Java/Android%20Sapce/JunzResume/app/src/main/res/drawable-hdpi/style_text_btn.xml -->
+</selector><!-- From: file:/E:/Java/Android%20Sapce/JunzResume2/app/src/main/res/drawable-hdpi/style_text_btn.xml -->

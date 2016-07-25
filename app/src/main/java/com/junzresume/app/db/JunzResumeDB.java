@@ -24,7 +24,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * å°†ç”¨æˆ·åå¯†ç å†™å…¥æ•°æ®åº“
+	 * ½«ÓÃ»§ÃûÃÜÂëĞ´ÈëÊı¾İ¿â
 	 * 
 	 * @param account
 	 * @param password
@@ -36,11 +36,11 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * éªŒè¯æ˜¯å¦ç™»å½•æˆåŠŸ
+	 * ÑéÖ¤ÊÇ·ñµÇÂ¼³É¹¦
 	 * 
 	 * @param account
 	 * @param password
-	 * @return ç”¨æˆ·åå¯†ç æ˜¯å¦æ­£ç¡®
+	 * @return ÓÃ»§ÃûÃÜÂëÊÇ·ñÕıÈ·
 	 */
 	public boolean userLoginCheck(String account, String password) {
 		Cursor cursor = getResultByAccountCheck(account);
@@ -57,7 +57,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * ç”¨æˆ·æ˜¯å¦å­˜åœ¨
+	 * ÓÃ»§ÊÇ·ñ´æÔÚ
 	 * 
 	 * @return
 	 */

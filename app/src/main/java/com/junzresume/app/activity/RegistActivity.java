@@ -1,5 +1,6 @@
 package com.junzresume.app.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,7 +42,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * æŒ‰é’®ç›‘å¬æ–¹æ³•
+	 * °´Å¥¼àÌı·½·¨
 	 */
 	@Override
 	public void onClick(View v) {
@@ -56,7 +57,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * â€œæ³¨å†Œâ€æŒ‰é’®è§¦å‘äº‹ä»¶
+	 * ¡°×¢²á¡±°´Å¥´¥·¢ÊÂ¼ş
 	 */
 	private void registAction() {
 		String accountText = account.getText().toString();
@@ -83,12 +84,14 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 		JunzResumeDB.getInstence(this).userRegist(accountText, passwordText);
 		Toast.makeText(this, R.string.regist_success, Toast.LENGTH_SHORT)
 				.show();
+		startActivity(new Intent(RegistActivity.this,
+				RegistDetailsInfoActivity.class));
 		finish();
 
 	}
 
 	/**
-	 * â€œé‡ç½®â€æŒ‰é’®è§¦å‘äº‹ä»¶
+	 * ¡°ÖØÖÃ¡±°´Å¥´¥·¢ÊÂ¼ş
 	 */
 	private void resetAction() {
 		account.setText("");
