@@ -35,5 +35,7 @@
     <string name="year">年</string>
     <string name="month">月</string>
     <string name="date">日</string>
+    <string name="regist_detail_native_place">籍&#8195;&#8195;贯：</string>
+    <string name="regist_detail_complete">完成</string>
 
 </resources>

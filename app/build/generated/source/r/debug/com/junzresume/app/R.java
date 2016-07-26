@@ -41,13 +41,13 @@ public final class R {
         public static final int top_menu2=0x7f020014;
     }
     public static final class id {
-        public static final int action_settings=0x7f090022;
+        public static final int action_settings=0x7f090024;
         public static final int contact_number=0x7f09001c;
         public static final int content_frame=0x7f09000a;
         public static final int date_sp=0x7f09001a;
         public static final int drawer_layout=0x7f090009;
-        public static final int draweritem_image=0x7f09001d;
-        public static final int draweritem_text=0x7f09001e;
+        public static final int draweritem_image=0x7f09001f;
+        public static final int draweritem_text=0x7f090020;
         public static final int e_mail=0x7f09001b;
         public static final int left_drawer=0x7f09000b;
         public static final int login_btn=0x7f090007;
@@ -55,10 +55,12 @@ public final class R {
         public static final int login_info=0x7f090001;
         public static final int login_junzresume=0x7f090000;
         public static final int month_sp=0x7f090019;
+        public static final int native_place=0x7f09001d;
         public static final int radio_female=0x7f090017;
         public static final int radio_male=0x7f090016;
         public static final int real_name=0x7f090015;
         public static final int regist_btn=0x7f090011;
+        public static final int regist_detail_complete_btn=0x7f09001e;
         public static final int regist_detail_junzresume=0x7f090013;
         public static final int regist_detail_tablelayout=0x7f090014;
         public static final int regist_junzresume=0x7f09000c;
@@ -70,9 +72,9 @@ public final class R {
         public static final int remeber_pwd=0x7f090005;
         public static final int remeber_pwd_linear=0x7f090004;
         public static final int reset_btn=0x7f090012;
-        public static final int title_exit_img=0x7f090021;
-        public static final int title_menu=0x7f09001f;
-        public static final int title_menu_img=0x7f090020;
+        public static final int title_exit_img=0x7f090023;
+        public static final int title_menu=0x7f090021;
+        public static final int title_menu_img=0x7f090022;
         public static final int user_account=0x7f090002;
         public static final int user_pwd=0x7f090003;
         public static final int year_sp=0x7f090018;
@@ -111,19 +113,21 @@ public final class R {
         public static final int regist=0x7f070012;
         public static final int regist_btn=0x7f070013;
         public static final int regist_detail_birthday=0x7f070014;
-        public static final int regist_detail_contact_num=0x7f070015;
-        public static final int regist_detail_email=0x7f070016;
-        public static final int regist_detail_info=0x7f070017;
-        public static final int regist_detail_realname=0x7f070018;
-        public static final int regist_detail_sex=0x7f070019;
-        public static final int regist_success=0x7f07001a;
-        public static final int regist_title=0x7f07001b;
-        public static final int registinfo_null=0x7f07001c;
-        public static final int remeber_pwd=0x7f07001d;
-        public static final int reset=0x7f07001e;
-        public static final int user_name=0x7f07001f;
-        public static final int user_pwd=0x7f070020;
-        public static final int year=0x7f070021;
+        public static final int regist_detail_complete=0x7f070015;
+        public static final int regist_detail_contact_num=0x7f070016;
+        public static final int regist_detail_email=0x7f070017;
+        public static final int regist_detail_info=0x7f070018;
+        public static final int regist_detail_native_place=0x7f070019;
+        public static final int regist_detail_realname=0x7f07001a;
+        public static final int regist_detail_sex=0x7f07001b;
+        public static final int regist_success=0x7f07001c;
+        public static final int regist_title=0x7f07001d;
+        public static final int registinfo_null=0x7f07001e;
+        public static final int remeber_pwd=0x7f07001f;
+        public static final int reset=0x7f070020;
+        public static final int user_name=0x7f070021;
+        public static final int user_pwd=0x7f070022;
+        public static final int year=0x7f070023;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 
@@ -138,6 +142,6 @@ public final class R {
         /**  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f040001;
-        public static final int myTheme=0x7f040002;
+        public static final int Theme_MyTheme_Spinner_NoTltleBar=0x7f040002;
     }
 }

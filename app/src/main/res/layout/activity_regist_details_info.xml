@@ -19,8 +19,7 @@
         android:id="@+id/regist_detail_tablelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/regist_detail_junzresume"
-        android:stretchColumns="1" >
+        android:layout_below="@id/regist_detail_junzresume" >
 
         <TableRow
             android:paddingLeft="15dp"
@@ -34,8 +33,11 @@
 
             <EditText
                 android:id="@+id/real_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="text"
+                android:scrollHorizontally="true" />
         </TableRow>
 
         <TableRow
@@ -58,16 +60,18 @@
                     android:id="@+id/radio_male"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="@string/radio_male" />
+                    android:checked="false"
+                    android:text="@string/radio_male"
+                    android:textSize="20sp" />
 
                 <RadioButton
                     android:id="@+id/radio_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:checked="true"
-                    android:text="@string/radio_female" />
+                    android:checked="false"
+                    android:text="@string/radio_female"
+                    android:textSize="20sp" />
             </RadioGroup>
         </TableRow>
 
@@ -78,6 +82,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:text="@string/regist_detail_birthday"
                 android:textSize="20sp" />
 
@@ -89,8 +94,7 @@
                 <Spinner
                     android:id="@+id/year_sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                     />
+                    android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,8 +105,7 @@
                 <Spinner
                     android:id="@+id/month_sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                     />
+                    android:layout_height="wrap_content" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -135,8 +138,10 @@
 
             <EditText
                 android:id="@+id/e_mail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textEmailSubject" />
         </TableRow>
 
         <TableRow
@@ -151,9 +156,47 @@
 
             <EditText
                 android:id="@+id/contact_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="number" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/regist_detail_native_place"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/native_place"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textMultiLine" />
         </TableRow>
     </TableLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/regist_detail_tablelayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" >
+
+        <Button
+            android:id="@+id/regist_detail_complete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/style_circle_btn"
+            android:text="@string/regist_detail_complete"
+            android:textColor="#fff"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp" />
+    </LinearLayout>
 
 </RelativeLayout>

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="myTheme" parent="@android:style/Theme.NoTitleBar">
+    <style name="Theme.MyTheme.Spinner.NoTltleBar" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:spinnerStyle">?android:attr/dropDownSpinnerStyle</item>
+        <item name="android:dropDownSpinnerStyle">@android:style/Widget.Holo.Spinner</item>
+        <item name="android:spinnerDropDownItemStyle">@android:style/Widget.Holo.DropDownItem.Spinner</item>
+        <item name="android:spinnerItemStyle">@android:style/Widget.Holo.TextView.SpinnerItem</item>
     </style>
 
 </resources>

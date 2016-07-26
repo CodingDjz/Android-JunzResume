@@ -5,4 +5,4 @@
     <item android:drawable="@drawable/btn_click" android:state_focused="true"/>
     <!-- 正常的放到最后，如果前面的满足条件，就不加载后面的了！所以放到最后 -->
     <item android:drawable="@drawable/btn_default" android:state_enabled="true"/>
-</selector><!-- From: file:/E:/Java/Android%20Sapce/JunzResume2/app/src/main/res/drawable-hdpi/style_circle_btn.xml -->
+</selector><!-- From: file:/E:/Java/Android%20Sapce/JunzResume1/app/src/main/res/drawable-hdpi/style_circle_btn.xml -->

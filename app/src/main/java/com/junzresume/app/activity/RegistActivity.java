@@ -1,5 +1,7 @@
 package com.junzresume.app.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,12 +14,12 @@ import com.junzresume.app.R;
 import com.junzresume.app.db.JunzResumeDB;
 
 public class RegistActivity extends BaseActivity implements OnClickListener {
-
 	private EditText account;
 	private EditText password;
 	private EditText confirmPwd;
 	private Button registBtn;
 	private Button resetBtn;
+	private AlertDialog.Builder registAlert;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.activity_regist);
 		initView();
 		setListener();
+		initRegistCompleteAlert();
 	}
 
 	private void initView() {
@@ -33,7 +36,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 		confirmPwd = (EditText) findViewById(R.id.regist_user_confirm);
 		registBtn = (Button) findViewById(R.id.regist_btn);
 		resetBtn = (Button) findViewById(R.id.reset_btn);
-
+		registAlert = new AlertDialog.Builder(this);
 	}
 
 	private void setListener() {
@@ -52,6 +55,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 			break;
 		case R.id.reset_btn:
 			resetAction();
+			break;
 		}
 
 	}
@@ -82,12 +86,38 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 			return;
 		}
 		JunzResumeDB.getInstence(this).userRegist(accountText, passwordText);
-		Toast.makeText(this, R.string.regist_success, Toast.LENGTH_SHORT)
-				.show();
-		startActivity(new Intent(RegistActivity.this,
-				RegistDetailsInfoActivity.class));
-		finish();
+		registAlert.show();
+	}
 
+	/**
+	 * 初始化注册选择框
+	 */
+
+	private void initRegistCompleteAlert() {
+		registAlert.setMessage("注册成功！您可选择去完善详细信息。");
+		registAlert.setTitle(getString(R.string.regist_success));
+		registAlert.setPositiveButton("去完善",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						startActivity(new Intent(RegistActivity.this,
+								RegistDetailsInfoActivity.class));
+						finish();
+
+					}
+				});
+		registAlert.setNegativeButton("先不去",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						System.out.println(String.valueOf(which));
+
+						finish();
+
+					}
+				});
 	}
 
 	/**
@@ -98,5 +128,4 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 		password.setText("");
 		confirmPwd.setText("");
 	}
-
 }
