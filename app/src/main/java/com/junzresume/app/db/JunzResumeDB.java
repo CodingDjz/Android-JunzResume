@@ -1,75 +1,133 @@
 package com.junzresume.app.db;
 
+import android.R.integer;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 public class JunzResumeDB {
 
-	public static final int DB_VERSION = 1;
-	private SQLiteDatabase db;
-	public static final String DB_NAME = "junzResume";
-	private static JunzResumeDB junzResumeDB;
+    public static final int DB_VERSION = 1;
+    private SQLiteDatabase db;
+    public static final String DB_NAME = "junzResume";
+    private static JunzResumeDB junzResumeDB;
 
-	public JunzResumeDB(Context context) {
-		db = new JunzResumeDatabaseHelper(context, DB_NAME, null, DB_VERSION)
-				.getWritableDatabase();
-	}
+    public JunzResumeDB(Context context) {
+        db = new JunzResumeDatabaseHelper(context, DB_NAME, null, DB_VERSION)
+                .getWritableDatabase();
+    }
 
-	public static JunzResumeDB getInstence(Context context) {
-		if (junzResumeDB == null)
-			junzResumeDB = new JunzResumeDB(context);
-		return junzResumeDB;
+    public static JunzResumeDB getInstence(Context context) {
+        if (junzResumeDB == null)
+            junzResumeDB = new JunzResumeDB(context);
+        return junzResumeDB;
 
-	}
+    }
 
-	/**
-	 * ½«ÓÃ»§ÃûÃÜÂëĞ´ÈëÊı¾İ¿â
-	 * 
-	 * @param account
-	 * @param password
-	 */
-	public void userRegist(String account, String password) {
-		String sql = "INSERT INTO USER(account,password)VALUES(" + account
-				+ "," + password + ")";
-		db.execSQL(sql);
-	}
+    /**
+     * éªŒè¯æ˜¯å¦ç™»å½•æˆåŠŸ
+     *
+     * @param account
+     * @param password
+     * @return ç”¨æˆ·åå¯†ç æ˜¯å¦æ­£ç¡®
+     */
+    public boolean userLoginCheck(String account, String password) {
+        Cursor cursor = getResultByAccountCheck(account);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                String dbPwd = cursor.getString(cursor
+                        .getColumnIndex("password"));
+                if (password.equals(dbPwd))
+                    return true;
+            } while (cursor.moveToNext());
 
-	/**
-	 * ÑéÖ¤ÊÇ·ñµÇÂ¼³É¹¦
-	 * 
-	 * @param account
-	 * @param password
-	 * @return ÓÃ»§ÃûÃÜÂëÊÇ·ñÕıÈ·
-	 */
-	public boolean userLoginCheck(String account, String password) {
-		Cursor cursor = getResultByAccountCheck(account);
-		if (cursor != null && cursor.moveToFirst()) {
-			do {
-				String dbPwd = cursor.getString(cursor
-						.getColumnIndex("password"));
-				if (password.equals(dbPwd))
-					return true;
-			} while (cursor.moveToNext());
+        }
+        return false;
+    }
 
-		}
-		return false;
-	}
+    /**
+     * ç”¨æˆ·æ˜¯å¦å­˜åœ¨
+     *
+     * @return
+     */
+    public boolean userRegistCheck(String account) {
+        Cursor cursor = getResultByAccountCheck(account);
+        if (cursor.getCount() == 0)
+            return true;
+        return false;
+    }
 
-	/**
-	 * ÓÃ»§ÊÇ·ñ´æÔÚ
-	 * 
-	 * @return
-	 */
-	public boolean userRegistCheck(String account) {
-		Cursor cursor = getResultByAccountCheck(account);
-		if (cursor.getCount() == 0)
-			return true;
-		return false;
-	}
+    /**
+     * å°†ç”¨æˆ·åå¯†ç å†™å…¥æ•°æ®åº“
+     *
+     * @param account
+     * @param password
+     */
+    public void userRegist(String account, String password) {
+        String sql = "INSERT INTO USER(account,password)VALUES(" + "'"
+                + account + "'" + "," + "'" + password + "'" + ")";
+        db.execSQL(sql);
+    }
 
-	public Cursor getResultByAccountCheck(String account) {
-		String sql = "SELECT password FROM USER WHERE account=" + account;
-		return db.rawQuery(sql, null);
-	}
+    /**
+     * è·å¾—ç”¨æˆ·ä¸»é”®ID
+     *
+     * @param account
+     * @return
+     */
+    public int getUserId(String account) {
+        String sql = "SELECT id FROM user Where account=?";
+        Cursor cursor = db.rawQuery(sql, new String[]{account});
+        int id = -1;
+        if (cursor != null && cursor.moveToFirst()) {
+            id = cursor.getInt(cursor.getColumnIndex("id"));
+        }
+        return id;
+    }
+
+    /*
+     * é€šè¿‡ç”¨æˆ·åæŸ¥è¯¢å¯†ç ï¼Œè¿”å›æŸ¥è¯¢ç»“æœCursor
+     */
+    public Cursor getResultByAccountCheck(String account) {
+        String sql = "SELECT password FROM USER WHERE account=" + "'" + account
+                + "'";
+        return db.rawQuery(sql, null);
+    }
+
+    /**
+     * ç”¨æˆ·è¯¦ç»†ä¿¡æ¯æ’å…¥æ•°æ®åº“
+     *
+     * @param id
+     * @param realName
+     * @param gender
+     * @param birthday
+     * @param email
+     * @param contactNumber
+     * @param nativePlace
+     */
+    public void userDetailInfoRegist(int id, String realName, int gender,
+                                     String birthday, String email, String contactNumber,
+                                     String nativePlace) {
+        String sql = "INSERT INTO user_info(id,real_name,gender,birthday,email,contact_number,native_place)VALUES("
+                + id
+                + ","
+                + "'"
+                + realName
+                + "'"
+                + ","
+                + "'"
+                + gender
+                + "'"
+                + ","
+                + "'"
+                + birthday
+                + "'"
+                + ","
+                + "'"
+                + email
+                + "'"
+                + ","
+                + contactNumber + "," + "'" + nativePlace + "'" + ")";
+        db.execSQL(sql);
+    }
 }

@@ -16,15 +16,15 @@
 
         <!--  -->
         <activity android:name="com.junzresume.app.activity.RegistDetailsInfoActivity" >
+        </activity>
+        <activity android:name="com.junzresume.app.activity.RegistActivity" >
+        </activity>
+        <activity android:name="com.junzresume.app.activity.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name="com.junzresume.app.activity.RegistActivity" >
-        </activity>
-        <activity android:name="com.junzresume.app.activity.LoginActivity" >
         </activity>
         <activity android:name="com.junzresume.app.activity.SplashActivity" >
         </activity>

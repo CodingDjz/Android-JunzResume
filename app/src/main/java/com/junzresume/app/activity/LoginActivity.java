@@ -3,7 +3,6 @@ package com.junzresume.app.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.Preference;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -11,10 +10,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.junzresume.app.R;
 import com.junzresume.app.db.JunzResumeDB;
+import com.junzresume.app.util.Util;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
 	private EditText account;
@@ -77,8 +76,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		String accountText = account.getText().toString();
 		String passwordText = password.getText().toString();
 		if ("".equals(accountText) || "".equals(passwordText)) {
-			Toast.makeText(this, R.string.account_pwd_null, Toast.LENGTH_SHORT)
-					.show();
+			Util.showToast(this, getString(R.string.account_pwd_null));
 			return;
 		}
 		boolean ifLogin = JunzResumeDB.getInstence(this).userLoginCheck(
@@ -86,8 +84,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		if (ifLogin) {
 			startActivity(new Intent(this, MainActivity.class));
 		} else {
-			Toast.makeText(this, R.string.account_pwd_wrong, Toast.LENGTH_SHORT)
-					.show();
+			Util.showToast(this, getString(R.string.account_pwd_wrong));
 		}
 	}
 

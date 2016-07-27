@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.junzresume.app.R;
 import com.junzresume.app.db.JunzResumeDB;
+import com.junzresume.app.util.Util;
 
 public class RegistActivity extends BaseActivity implements OnClickListener {
 	private EditText account;
@@ -61,6 +61,15 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
+	 * “重置”按钮触发事件
+	 */
+	private void resetAction() {
+		account.setText("");
+		password.setText("");
+		confirmPwd.setText("");
+	}
+
+	/**
 	 * “注册”按钮触发事件
 	 */
 	private void registAction() {
@@ -69,23 +78,22 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 		String confirmText = confirmPwd.getText().toString();
 		if ("".equals(accountText) || "".equals(passwordText)
 				|| "".equals(confirmText)) {
-			Toast.makeText(this, R.string.registinfo_null, Toast.LENGTH_SHORT)
-					.show();
+			Util.showToast(this, getString(R.string.registinfo_null));
 			return;
 		}
 		if (!passwordText.equals(confirmText)) {
-			Toast.makeText(this, R.string.password_not_match,
-					Toast.LENGTH_SHORT).show();
+			Util.showToast(this, getString(R.string.password_not_match));
 			return;
 		}
 		boolean canRegist = JunzResumeDB.getInstence(this).userRegistCheck(
 				accountText);
 		if (!canRegist) {
-			Toast.makeText(this, R.string.exist_account, Toast.LENGTH_SHORT)
-					.show();
+			Util.showToast(this, getString(R.string.exist_account));
 			return;
 		}
+		// 注册信息写入数据库
 		JunzResumeDB.getInstence(this).userRegist(accountText, passwordText);
+		Util.userId = JunzResumeDB.getInstence(this).getUserId(accountText);
 		registAlert.show();
 	}
 
@@ -96,7 +104,8 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 	private void initRegistCompleteAlert() {
 		registAlert.setMessage("注册成功！您可选择去完善详细信息。");
 		registAlert.setTitle(getString(R.string.regist_success));
-		registAlert.setPositiveButton("去完善",
+		registAlert.setPositiveButton(
+				getString(R.string.to_regist_detail_info),
 				new DialogInterface.OnClickListener() {
 
 					@Override
@@ -107,25 +116,22 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 
 					}
 				});
-		registAlert.setNegativeButton("先不去",
+		registAlert.setNegativeButton(
+				getString(R.string.not_to_regist_detail_info),
 				new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						System.out.println(String.valueOf(which));
 
 						finish();
 
 					}
 				});
 	}
-
-	/**
-	 * “重置”按钮触发事件
-	 */
-	private void resetAction() {
-		account.setText("");
-		password.setText("");
-		confirmPwd.setText("");
+	
+	private boolean isAccountSyntax(String account){
+		//TODO
+		return false;
 	}
+
 }

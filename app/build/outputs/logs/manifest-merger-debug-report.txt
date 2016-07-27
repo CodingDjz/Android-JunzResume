@@ -36,27 +36,27 @@ MERGED from [com.android.support:support-v4:20.0.0] E:\Java\Android Sapce\JunzRe
 	android:theme
 		ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:15:9-64
 activity#com.junzresume.app.activity.RegistDetailsInfoActivity
-ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:18:9-24:20
+ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:18:9-19:20
 	android:name
 		ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:18:19-69
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:19:13-23:29
-action#android.intent.action.MAIN
-ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:20:17-69
-	android:name
-		ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:20:25-66
-category#android.intent.category.LAUNCHER
-ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:22:17-77
-	android:name
-		ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:22:27-74
 activity#com.junzresume.app.activity.RegistActivity
-ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:25:9-26:20
+ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:20:9-21:20
 	android:name
-		ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:25:19-58
+		ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:20:19-58
 activity#com.junzresume.app.activity.LoginActivity
-ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:27:9-28:20
+ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:22:9-28:20
 	android:name
-		ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:27:19-57
+		ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:22:19-57
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:23:13-27:29
+action#android.intent.action.MAIN
+ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:24:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:26:17-77
+	android:name
+		ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:26:27-74
 activity#com.junzresume.app.activity.SplashActivity
 ADDED from E:\Java\Android Sapce\JunzResume1\app\src\main\AndroidManifest.xml:29:9-30:20
 	android:name

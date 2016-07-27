@@ -8,7 +8,15 @@ import android.util.Log;
 
 public class JunzResumeDatabaseHelper extends SQLiteOpenHelper {
 
-	public static final String CREATE_USER = "CREATE TABLE USER(id INTEGER PRIMARY KEY AUTOINCREMENT,account TEXT,password TEXT);";
+	private static final String CREATE_USER = "CREATE TABLE user("
+			+ "id INTEGER PRIMARY KEY AUTOINCREMENT," + "account TEXT,"
+			+ "password TEXT)";
+
+	private static final String CREATE_USER_INFO = "CREATE TABLE user_info("
+			+ "id INTEGER," + "real_name TEXT," + "gender INTEGER,"
+			+ "birthday INTEGER," + "email TEXT," + "contact_number INTEGER,"
+			+ "native_place TEXT)";
+
 	private Context context;
 
 	public JunzResumeDatabaseHelper(Context context, String name,
@@ -17,10 +25,13 @@ public class JunzResumeDatabaseHelper extends SQLiteOpenHelper {
 		this.context = context;
 	}
 
+	/**
+	 * ��ݿⱻ����ʱ����
+	 */
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(CREATE_USER);
-		Log.v("JunzResumeDatabaseHelper", "Create Table +'USER' SUCCESSFUL!");
+		db.execSQL(CREATE_USER_INFO);
 	}
 
 	@Override
