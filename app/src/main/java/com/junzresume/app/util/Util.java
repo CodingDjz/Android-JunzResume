@@ -8,7 +8,8 @@ public class Util {
 	public static int userId;
 
 	/**
-	 * 显示Toast  不会重复显示
+	 * 显示Toast 不会重复显示
+	 * 
 	 * @param context
 	 * @param text
 	 */
@@ -20,5 +21,13 @@ public class Util {
 		}
 
 		toast.show();
+	}
+
+	public static void setUserId(int thisUserId) {
+		userId = thisUserId;
+	}
+
+	public static int getUserId() {
+		return userId;
 	}
 }

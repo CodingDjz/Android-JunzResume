@@ -2,14 +2,13 @@ package com.junzresume.app.activity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import android.R.integer;
-import android.app.PendingIntent.CanceledException;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -17,13 +16,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import com.junzresume.app.R;
-import com.junzresume.app.R.array;
 import com.junzresume.app.db.JunzResumeDB;
-import com.junzresume.app.db.JunzResumeDatabaseHelper;
 import com.junzresume.app.util.Util;
 
 public class RegistDetailsInfoActivity extends BaseActivity implements
@@ -36,12 +32,19 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	EditText emailView;
 	EditText contactNumberView;
 	EditText nativePlaceView;
+	EditText schoolView;
+	EditText professionalView;
 	Spinner yearSpinner;
 	Spinner monthSpinner;
 	Spinner dateSpinner;
+	Spinner degreeSpinner;
+	Spinner isMarriedSpinner;
 	ArrayAdapter<String> yearAdapter;
 	ArrayAdapter<String> monthAdapter;
 	ArrayAdapter<String> dateAdapter;
+	ArrayAdapter<String> degreeAdapter;
+	ArrayAdapter<String> isMarryAdapter;
+	DatePicker datePicker;
 	Calendar calendar;
 
 	@Override
@@ -50,7 +53,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 		setContentView(R.layout.activity_regist_details_info);
 		initView();
 		initListener();
-		initBirthdaySpinner();
+		initSpinner();
 	}
 
 	private void initView() {
@@ -65,6 +68,10 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 		emailView = (EditText) findViewById(R.id.e_mail);
 		contactNumberView = (EditText) findViewById(R.id.contact_number);
 		nativePlaceView = (EditText) findViewById(R.id.native_place);
+		degreeSpinner = (Spinner) findViewById(R.id.degree_sp);
+		isMarriedSpinner = (Spinner) findViewById(R.id.is_marride);
+		schoolView = (EditText) findViewById(R.id.school);
+		professionalView = (EditText) findViewById(R.id.professional_edit);
 	}
 
 	private void initListener() {
@@ -75,19 +82,21 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	}
 
 	/**
-	 * ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½
+	 * ³õÊ¼»¯ÈÕÆÚÑ¡ÔñÆ÷
 	 */
 
-	private void initBirthdaySpinner() {
+	private void initSpinner() {
 		setYearSpinner();
 		setMonthSpinner();
 		setDateSpinner(
 				Integer.parseInt(yearSpinner.getSelectedItem().toString()),
 				Integer.parseInt(monthSpinner.getSelectedItem().toString()));
+		setDegreeSpinner();
+		setIsMarriedSpinner();
 	}
 
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * ÉèÖÃÄêÏÂÀ­±í
 	 * 
 	 * @param calendar
 	 */
@@ -106,7 +115,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	}
 
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * ÉèÖÃÔÂ·ÝÏÂÀ­±í
 	 * 
 	 * @param calendar
 	 * 
@@ -125,7 +134,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	}
 
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â»ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * ¸ù¾ÝÄêÔÂ»ñµÃÔÂ·ÝÌìÊý
 	 * 
 	 * @param year
 	 * @param month
@@ -146,31 +155,70 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 		dateSpinner.setAdapter(dateAdapter);
 	}
 
+	private void setDegreeSpinner() {
+		ArrayList<String> degree = new ArrayList<>();
+		degree.add("²©Ê¿");
+		degree.add("Ë¶Ê¿");
+		degree.add("±¾¿Æ");
+		degree.add("¸ßÖÐ");
+		degree.add("³õÖÐ");
+		degree.add("Ð¡Ñ§");
+
+		degreeAdapter = new ArrayAdapter<>(this,
+				R.layout.birthday_spinner_item, degree);
+		degreeAdapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		degreeSpinner.setAdapter(degreeAdapter);
+	}
+
+	private void setIsMarriedSpinner() {
+		ArrayList<String> isMarried = new ArrayList<>();
+		isMarried.add("Î´»é");
+		isMarried.add("ÒÑ»é");
+		isMarryAdapter = new ArrayAdapter<>(this,
+				R.layout.birthday_spinner_item, isMarried);
+		isMarryAdapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		isMarriedSpinner.setAdapter(isMarryAdapter);
+	}
+
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½É¡ï¿½ï¿½ï¿½ï¿½ï¿?
+	 * ¡°Íê³É¡±¶¯×÷
 	 */
 	private void completeAction() {
 		String realName = realNameView.getText().toString();
 		int gender = getGender();
 		String birthday = getBirthday();
+		String nativePlace = nativePlaceView.getText().toString();
+		int ismarried = getIsMarried();
+		String degree = degreeSpinner.getSelectedItem().toString();
+		String school = schoolView.getText().toString();
+		String professional = professionalView.getText().toString();
 		String email = emailView.getText().toString();
 		String contactNumber = contactNumberView.getText().toString();
-		String nativePlace = nativePlaceView.getText().toString();
+
+		// ÅÐ¿Õ
 		if (TextUtils.isEmpty(realName) || gender == 0
 				|| TextUtils.isEmpty(birthday) || TextUtils.isEmpty(email)
 				|| TextUtils.isEmpty(contactNumber)
 				|| TextUtils.isEmpty(nativePlace)) {
-			Util.showToast(this, "ÌîÐ´ÐÅÏ¢²»ÄÜÎª¿Õ");
+			Util.showToast(this, getString(R.string.regist_detailinfo_null));
+			return;
+		}
+		// ÓÊÏä¸ñÊ½
+		if (!isEmailSyntaxMatch(email)) {
+			Util.showToast(this, getString(R.string.email_syntax_match));
 			return;
 		}
 		JunzResumeDB.getInstence(this).userDetailInfoRegist(Util.userId,
-				realName, gender, birthday, email, contactNumber, nativePlace);
-		Util.showToast(this, "ÐÅÏ¢ÌîÐ´³É¹¦£¡");
+				realName, gender, birthday, nativePlace, ismarried, degree,
+				school, professional, email, contactNumber);
+		Util.showToast(this, getString(R.string.regist_detail_complete_success));
 		finish();
 	}
 
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿?
+	 * »ñµÃÐÔ±ð´úºÅ
 	 * 
 	 * @return
 	 */
@@ -185,7 +233,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	}
 
 	/*
-	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿?ï¿½ï¿½Ê½Y/M/D
+	 * »ñµÃÉúÈÕ×Ö·û´® ¸ñÊ½Y/M/D
 	 * 
 	 * @return
 	 */
@@ -197,10 +245,33 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 		return birthday.toString();
 	}
 
+	private int getIsMarried() {
+		String isMarried = isMarriedSpinner.getSelectedItem().toString();
+		int isMarriedId = 0;
+		if ("Î´»é".equals(isMarried)) {
+			isMarriedId = 1;
+		} else if ("ÒÑ»é".equals(isMarried)) {
+			isMarriedId = 2;
+		}
+		return isMarriedId;
+	}
+
+	/**
+	 * ÓÊÏä¸ñÊ½ÊÇ·ñÆ¥Åä
+	 * 
+	 * @param emailText
+	 * @return
+	 */
+	private boolean isEmailSyntaxMatch(String emailText) {
+		Pattern pattern = Pattern.compile("\\w+@[a-zA-Z0-9]+\\.[a-zA-Z]+\\s*");
+		Matcher matcher = pattern.matcher(emailText);
+		return matcher.matches();
+	}
+
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position,
 			long id) {
-		// ï¿½Â·Ýµï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿?
+		// ÔÂ·Ýµã»÷Ê±¼àÌý
 		int selectYear = Integer.parseInt(yearSpinner.getSelectedItem()
 				.toString());
 		int selectMonth = Integer.parseInt(monthSpinner.getSelectedItem()

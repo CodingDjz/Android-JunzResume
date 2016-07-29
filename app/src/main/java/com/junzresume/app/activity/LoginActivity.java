@@ -51,24 +51,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		registStr.setOnClickListener(this);
 	}
 
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.login_btn:
-			loginAction();
-			break;
-		case R.id.regist_user:
-			registAction();
-			break;
-		}
-	}
-
-	@Override
-	protected void onStop() {
-		super.onStop();
-		remeberPwdSave();
-	}
-
 	/**
 	 * 登录按钮触发事件
 	 */
@@ -81,7 +63,10 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		}
 		boolean ifLogin = JunzResumeDB.getInstence(this).userLoginCheck(
 				accountText, passwordText);
+		// 验证是否可以登录
 		if (ifLogin) {
+			Util.setUserId(JunzResumeDB.getInstence(this)
+					.getUserId(accountText));
 			startActivity(new Intent(this, MainActivity.class));
 		} else {
 			Util.showToast(this, getString(R.string.account_pwd_wrong));
@@ -126,5 +111,23 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		password.setText(remeberPassword);
 		if (!"".equals(remeberAccount) || !"".equals(remeberPassword))
 			remeberPwd.setChecked(true);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.login_btn:
+			loginAction();
+			break;
+		case R.id.regist_user:
+			registAction();
+			break;
+		}
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		remeberPwdSave();
 	}
 }

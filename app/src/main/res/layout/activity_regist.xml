@@ -34,8 +34,8 @@
             <EditText
                 android:id="@+id/regist_user_account"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:hint="@string/hint_regist_account" />
         </TableRow>
 
@@ -52,8 +52,8 @@
             <EditText
                 android:id="@+id/regist_user_pwd"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:hint="@string/hint_regist_pwd"
                 android:inputType="textPassword" />
         </TableRow>
@@ -70,9 +70,9 @@
 
             <EditText
                 android:id="@+id/regist_user_confirm"
-               android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:hint="@string/hint_confirm_pwd"
                 android:inputType="textPassword" />
         </TableRow>

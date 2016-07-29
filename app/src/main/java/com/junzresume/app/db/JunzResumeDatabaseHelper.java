@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class JunzResumeDatabaseHelper extends SQLiteOpenHelper {
 
@@ -14,8 +13,9 @@ public class JunzResumeDatabaseHelper extends SQLiteOpenHelper {
 
 	private static final String CREATE_USER_INFO = "CREATE TABLE user_info("
 			+ "id INTEGER," + "real_name TEXT," + "gender INTEGER,"
-			+ "birthday INTEGER," + "email TEXT," + "contact_number INTEGER,"
-			+ "native_place TEXT)";
+			+ "birthday TEXT," + "native_place TEXT," + "ismarried INTEGER,"
+			+ "degree TEXT," + "school TEXT," + "professional TEXT,"
+			+ "email TEXT," + "contact_number INTEGER)";
 
 	private Context context;
 
@@ -26,7 +26,7 @@ public class JunzResumeDatabaseHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * ï¿½ï¿½Ý¿â±»ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
+	 * Êý¾Ý¿â±»´´½¨Ê±µ÷ÓÃ
 	 */
 	@Override
 	public void onCreate(SQLiteDatabase db) {

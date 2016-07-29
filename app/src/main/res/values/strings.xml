@@ -4,14 +4,14 @@
     <string name="app_name">君之简历</string>
     <string name="action_settings">Settings</string>
     <string name="login_title">启程</string>
-    <string name="user_name">账号：</string>
-    <string name="user_pwd">密码：</string>
+    <string name="user_name">账&#8195;&#8195;号：</string>
+    <string name="user_pwd">密&#8195;&#8195;码：</string>
     <string name="hint_username">输入账号</string>
     <string name="hint_userpwd">输入密码</string>
     <string name="remeber_pwd">记住密码</string>
     <string name="login">登录</string>
     <string name="regist"><u>注册用户</u></string>
-    <string name="hint_regist_account">用户名</string>
+    <string name="hint_regist_account">字母数字下划线组成</string>
     <string name="hint_regist_pwd">密码</string>
     <string name="confirm_pwd">确认密码：</string>
     <string name="hint_confirm_pwd">确认密码</string>
@@ -22,8 +22,8 @@
     <string name="password_not_match">两次密码不一致</string>
     <string name="exist_account">用户名已存在</string>
     <string name="regist_success">注册成功</string>
-    <string name="account_pwd_null">用户名或密码不能为空</string>
-    <string name="account_pwd_wrong">用户名或密码错误</string>
+    <string name="account_pwd_null">账号或密码不能为空</string>
+    <string name="account_pwd_wrong">账号或密码错误</string>
     <string name="regist_detail_info">详细信息</string>
     <string name="regist_detail_realname">真实姓名：</string>
     <string name="regist_detail_gender">性&#8195;&#8195;别：</string>
@@ -37,7 +37,16 @@
     <string name="date">日</string>
     <string name="regist_detail_native_place">籍&#8195;&#8195;贯：</string>
     <string name="regist_detail_complete">完成</string>
-    <string name="to_regist_detail_info">去完善</string>
-    <string name="not_to_regist_detail_info">先不去</string>
+    <string name="to_regist_detail_info">现在去</string>
+    <string name="not_to_regist_detail_info">等会去</string>
+    <string name="account_syntax_unmatch">用户名格式不正确。</string>
+    <string name="email_syntax_match">邮箱格式不正确</string>
+    <string name="regist_detailinfo_null">填写信息不能为空</string>
+    <string name="regist_detail_complete_success">信息填写成功！</string>
+    <string name="if_to_detailinfo">注册成功！您是否要去完善详细信息。</string>
+    <string name="degree">学&#8195;历：</string>
+    <string name="professional">专&#8195;&#8195;业：</string>
+    <string name="is_married">婚姻状态：</string>
+    <string name="school">学&#8195;&#8195;校</string>
 
 </resources>

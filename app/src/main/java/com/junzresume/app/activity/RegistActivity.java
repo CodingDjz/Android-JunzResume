@@ -1,5 +1,8 @@
 package com.junzresume.app.activity;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -76,16 +79,24 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 		String accountText = account.getText().toString();
 		String passwordText = password.getText().toString();
 		String confirmText = confirmPwd.getText().toString();
+		// 是否有空值
 		if ("".equals(accountText) || "".equals(passwordText)
 				|| "".equals(confirmText)) {
 			Util.showToast(this, getString(R.string.registinfo_null));
 			return;
 		}
+		// 用户名正则匹配
+		if (!isAccountSyntaxMatch(accountText)) {
+			Util.showToast(this, getString(R.string.account_syntax_unmatch));
+			return;
+		}
+		// 密码是否相等
 		if (!passwordText.equals(confirmText)) {
 			Util.showToast(this, getString(R.string.password_not_match));
 			return;
 		}
-		boolean canRegist = JunzResumeDB.getInstence(this).userRegistCheck(
+		// 用户是否已存在
+		boolean canRegist = JunzResumeDB.getInstence(this).userIsRegist(
 				accountText);
 		if (!canRegist) {
 			Util.showToast(this, getString(R.string.exist_account));
@@ -93,7 +104,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 		}
 		// 注册信息写入数据库
 		JunzResumeDB.getInstence(this).userRegist(accountText, passwordText);
-		Util.userId = JunzResumeDB.getInstence(this).getUserId(accountText);
+		Util.setUserId(JunzResumeDB.getInstence(this).getUserId(accountText));
 		registAlert.show();
 	}
 
@@ -102,7 +113,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 	 */
 
 	private void initRegistCompleteAlert() {
-		registAlert.setMessage("注册成功！您可选择去完善详细信息。");
+		registAlert.setMessage(R.string.if_to_detailinfo);
 		registAlert.setTitle(getString(R.string.regist_success));
 		registAlert.setPositiveButton(
 				getString(R.string.to_regist_detail_info),
@@ -128,10 +139,17 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 					}
 				});
 	}
-	
-	private boolean isAccountSyntax(String account){
-		//TODO
-		return false;
+
+	/**
+	 * 用户名格式是否匹配
+	 * 
+	 * @param accountText
+	 * @return
+	 */
+	private boolean isAccountSyntaxMatch(String accountText) {
+		Pattern pattern = Pattern.compile("([0-9a-zA-Z]|[_])+");
+		Matcher matcher = pattern.matcher(accountText);
+		return matcher.matches();
 	}
 
 }

@@ -16,6 +16,6 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textColor="#fff"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
 </LinearLayout>

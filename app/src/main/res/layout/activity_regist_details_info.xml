@@ -99,6 +99,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:text="@string/year"
                     android:textSize="20sp" />
 
@@ -110,6 +111,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:text="@string/month"
                     android:textSize="20sp" />
 
@@ -124,6 +126,93 @@
                     android:text="@string/date"
                     android:textSize="20sp" />
             </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/regist_detail_native_place"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/native_place"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textMultiLine" />
+        </TableRow>
+
+        <TableRow
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/is_married"
+                android:textSize="20sp" />
+
+            <LinearLayout>
+
+                <Spinner
+                    android:id="@+id/is_marride"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/degree"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/degree_sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/school"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/school"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="text" />
+        </TableRow>
+
+        <TableRow
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/professional"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/professional_edit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="text" />
         </TableRow>
 
         <TableRow
@@ -161,24 +250,6 @@
                 android:layout_weight="1"
                 android:inputType="number" />
         </TableRow>
-
-        <TableRow
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/regist_detail_native_place"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/native_place"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="textMultiLine" />
-        </TableRow>
     </TableLayout>
 
     <LinearLayout
@@ -192,10 +263,10 @@
             android:id="@+id/regist_detail_complete_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/style_circle_btn"
             android:text="@string/regist_detail_complete"
             android:textColor="#fff"
-            android:layout_gravity="center_horizontal"
             android:textSize="20sp" />
     </LinearLayout>
 

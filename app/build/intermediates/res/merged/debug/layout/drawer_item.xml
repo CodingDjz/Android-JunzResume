@@ -16,6 +16,6 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textColor="#fff"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
 </LinearLayout><!-- From: file:/E:/Java/Android%20Sapce/JunzResume1/app/src/main/res/layout/drawer_item.xml -->
