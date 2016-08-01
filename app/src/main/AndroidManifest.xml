@@ -15,7 +15,7 @@
         android:theme="@style/Theme.MyTheme.Spinner.NoTltleBar" >
 
         <!--  -->
-        <activity android:name=".activity.drawer.PersonInfoActivity" >
+        <activity android:name="com.junzresume.app.fragment.PersonInfoFragment" >
         </activity>
         <activity android:name=".activity.RegistDetailsInfoActivity" >
         </activity>

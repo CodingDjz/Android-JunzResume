@@ -9,12 +9,19 @@
         android:layout_height="match_parent" >
 
         <RelativeLayout
-            android:id="@+id/content_frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/default_bgp" >
+            android:layout_height="match_parent" >
 
-            <include layout="@layout/title_menu" />
+            <include
+                android:id="@+id/include_bar"
+                layout="@layout/title_menu" />
+
+            <RelativeLayout
+                android:id="@+id/content_framelayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/include_bar"
+                android:background="@drawable/default_bgp" />
         </RelativeLayout>
 
         <ListView

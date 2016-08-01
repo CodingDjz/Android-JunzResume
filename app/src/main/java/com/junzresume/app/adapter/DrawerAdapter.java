@@ -30,6 +30,13 @@ public class DrawerAdapter extends BaseAdapter {
 	}
 
 	@Override
+	public boolean isEnabled(int position) {
+		if (position == 0)
+			return false;
+		return super.isEnabled(position);
+	}
+
+	@Override
 	public int getCount() {
 		return MenuItems.size();
 	}

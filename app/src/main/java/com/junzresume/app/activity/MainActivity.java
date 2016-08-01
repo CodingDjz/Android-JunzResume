@@ -1,6 +1,7 @@
 package com.junzresume.app.activity;
 
-import android.content.Intent;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -13,8 +14,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.junzresume.app.R;
-import com.junzresume.app.activity.drawer.PersonInfoActivity;
 import com.junzresume.app.adapter.DrawerAdapter;
+import com.junzresume.app.fragment.PersonInfoFragment;
 
 public class MainActivity extends BaseActivity implements OnClickListener,
 		OnItemClickListener {
@@ -67,7 +68,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 			long id) {
 		switch (position) {
 		case 1:
-			startActivity(new Intent(this, PersonInfoActivity.class));
+			selectAction(position);
 			break;
 
 		default:
@@ -76,7 +77,18 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 
 	}
 
-	/*
-	 * ListView����¼�
-	 */
+	public void selectAction(int position) {
+
+//		// 为内容视图加载新的Fragment
+//		 Fragment contentFragment = new ContentFragment( ) ;
+//		 contentFragment.setArguments(bd);
+
+		FragmentManager fragmentManager = getFragmentManager();
+		FragmentTransaction transaction = fragmentManager.beginTransaction();
+		transaction.replace(R.id.content_framelayout,new PersonInfoFragment()).commit();
+//		transaction.replace(R.id.content_frame, contentFragment).commit();
+
+		listView.setItemChecked(position, true);
+		drawerLayout.closeDrawer(listView);
+	}
 }
