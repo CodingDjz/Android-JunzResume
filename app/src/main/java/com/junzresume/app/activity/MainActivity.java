@@ -1,5 +1,9 @@
 package com.junzresume.app.activity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -16,6 +20,7 @@ import android.widget.ListView;
 import com.junzresume.app.R;
 import com.junzresume.app.adapter.DrawerAdapter;
 import com.junzresume.app.fragment.PersonInfoFragment;
+import com.junzresume.app.fragment.ProfessionalSkill;
 
 public class MainActivity extends BaseActivity implements OnClickListener,
 		OnItemClickListener {
@@ -23,7 +28,8 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 	ImageView titleMenuImg;
 	ImageView titleExitImg;
 	DrawerLayout drawerLayout;
-	ListView listView;
+	ListView drawerListView;
+	List<Fragment> fragList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +46,18 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 		titleMenuImg = (ImageView) findViewById(R.id.title_menu_img);
 		titleExitImg = (ImageView) findViewById(R.id.title_exit_img);
 		DrawerAdapter adapter = new DrawerAdapter(this);
-		listView = (ListView) findViewById(R.id.left_drawer);
-		listView.setAdapter(adapter);
+		drawerListView = (ListView) findViewById(R.id.left_drawer);
+		drawerListView.setAdapter(adapter);
+		// 将列表Fragment添加到List
+		fragList = new ArrayList<>();
+		fragList.add(new PersonInfoFragment());
+		fragList.add(new ProfessionalSkill());
 	}
 
 	private void setListener() {
 		titleMenuImg.setOnClickListener(this);
 		titleExitImg.setOnClickListener(this);
-		listView.setOnItemClickListener(this);
+		drawerListView.setOnItemClickListener(this);
 	}
 
 	@Override
@@ -66,29 +76,22 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		switch (position) {
-		case 1:
-			selectAction(position);
-			break;
-
-		default:
-			break;
-		}
-
+		selectAction(position);
 	}
 
+	/**
+	 * 侧边栏点击事件
+	 * 
+	 * @param position
+	 */
 	public void selectAction(int position) {
-
-//		// 为内容视图加载新的Fragment
-//		 Fragment contentFragment = new ContentFragment( ) ;
-//		 contentFragment.setArguments(bd);
 
 		FragmentManager fragmentManager = getFragmentManager();
 		FragmentTransaction transaction = fragmentManager.beginTransaction();
-		transaction.replace(R.id.content_framelayout,new PersonInfoFragment()).commit();
-//		transaction.replace(R.id.content_frame, contentFragment).commit();
+		transaction.replace(R.id.content_framelayout, fragList.get(--position))
+				.commit();
 
-		listView.setItemChecked(position, true);
-		drawerLayout.closeDrawer(listView);
+		drawerListView.setItemChecked(position, true);
+		drawerLayout.closeDrawer(drawerListView);
 	}
 }

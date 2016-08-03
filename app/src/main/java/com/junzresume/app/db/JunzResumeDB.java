@@ -1,8 +1,15 @@
 package com.junzresume.app.db;
 
+import java.util.ArrayList;
+
+import android.R.integer;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+
+import com.junzresume.app.entity.ArrayListViewItem;
+import com.junzresume.app.entity.PersonInfo;
 
 public class JunzResumeDB {
 
@@ -132,5 +139,64 @@ public class JunzResumeDB {
 				+ "',"
 				+ contactNumber + ")";
 		db.execSQL(sql);
+	}
+
+	/**
+	 * 通过ID查询用户详细信息，返回对应实体类
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public PersonInfo selectPersonInfo(int id) {
+		String sql = "SELECT * FROM user_info WHERE id=?";
+		Cursor cursor = db.rawQuery(sql, new String[] { String.valueOf(id) });
+		PersonInfo personInfo = new PersonInfo();
+		personInfo.setId(id);
+		if (cursor != null && cursor.moveToFirst()) {
+			personInfo.setRealName(cursor.getString(cursor
+					.getColumnIndex("real_name")));
+			personInfo
+					.setGender(cursor.getInt(cursor.getColumnIndex("gender")));
+			personInfo.setBirthday(cursor.getString(cursor
+					.getColumnIndex("birthday")));
+			personInfo.setNativePlace(cursor.getString(cursor
+					.getColumnIndex("native_place")));
+			personInfo.setIsMarried(cursor.getInt(cursor
+					.getColumnIndex("ismarried")));
+			personInfo.setDegree(cursor.getString(cursor
+					.getColumnIndex("degree")));
+			personInfo.setSchool(cursor.getString(cursor
+					.getColumnIndex("school")));
+			personInfo.setProfessional(cursor.getString(cursor
+					.getColumnIndex("professional")));
+			personInfo
+					.setEmail(cursor.getString(cursor.getColumnIndex("email")));
+			personInfo.setContactNumber(cursor.getInt(cursor
+					.getColumnIndex("contact_number")));
+
+		}
+		return personInfo;
+	}
+
+	/**
+	 * 通过ID查询专业技能，返回List集合
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public ArrayList<ArrayListViewItem> getProSkillByid(int id) {
+		String sql = "SELECT table_key,skill FROM pro_skill WHERE id=" + id;
+		Cursor cursor = db.rawQuery(sql, null);
+		if (cursor != null && cursor.moveToFirst()) {
+			ArrayList<ArrayListViewItem> skillList = new ArrayList<>();
+			int count = 0;
+			do {
+				int tableKey = cursor.getInt(cursor.getColumnIndex("table_key"));
+				String skill = cursor.getString(cursor.getColumnIndex("skill"));
+				skillList.add(new ArrayListViewItem(++count, tableKey, skill));
+			} while (cursor.moveToNext());
+			return skillList;
+		}
+		return null;
 	}
 }

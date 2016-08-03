@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#000" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,24 +17,21 @@
             android:id="@+id/info_realname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="丁君之"
+            android:layout_marginRight="5dp"
             android:textColor="#fff"
-            android:textSize="25sp"
-            android:layout_marginRight="5dp" />
+            android:textSize="25sp" />
 
         <ImageView
             android:id="@+id/info_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_margin="10dp"
-            android:background="@drawable/male" />
+            android:layout_margin="10dp" />
 
         <TextView
             android:id="@+id/info_birthday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1992/06/21"
             android:textColor="#fff"
             android:textSize="18sp" />
     </LinearLayout>
@@ -49,7 +47,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="本科"
             android:textColor="#fff"
             android:textSize="18sp" />
 
@@ -58,7 +55,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="大理大学"
             android:textColor="#fff"
             android:textSize="18sp" />
 
@@ -67,7 +63,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="通信工程"
             android:textColor="#fff"
             android:textSize="18sp" />
     </LinearLayout>
@@ -85,7 +80,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="@string/regist_detail_native_place"
             android:textColor="#fff"
             android:textSize="15sp" />
 
@@ -94,7 +88,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="河北省保定市北市区xxxx"
             android:textColor="#fff"
             android:textSize="15sp" />
     </LinearLayout>
@@ -110,7 +103,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="@string/regist_detail_email"
             android:textColor="#fff"
             android:textSize="15sp" />
 
@@ -119,7 +111,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="CodingDjz@sina.com"
             android:textColor="#fff"
             android:textSize="15sp" />
     </LinearLayout>
@@ -137,7 +128,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="@string/regist_detail_contact_num"
             android:textColor="#fff"
             android:textSize="15sp" />
 
@@ -146,7 +136,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="18330250752"
             android:textColor="#fff"
             android:textSize="15sp" />
     </LinearLayout>

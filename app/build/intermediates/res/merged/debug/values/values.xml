@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/E:/Java/Android%20Sapce/JunzResume2/app/src/main/res/values/radio_sex.xml -->
+    <!-- From: file:/E:/Java/Android%20Sapce/JunzResume1/app/src/main/res/values/radio_sex.xml -->
     <eat-comment/>
     <string-array name="sex_array">
         <item>请选择</item>
         <item>男</item>
         <item>女</item>
     </string-array>
-    <!-- From: file:/E:/Java/Android%20Sapce/JunzResume2/app/src/main/res/values/dimens.xml -->
+    <!-- From: file:/E:/Java/Android%20Sapce/JunzResume1/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/E:/Java/Android%20Sapce/JunzResume2/app/src/main/res/values/strings.xml -->
+    <!-- From: file:/E:/Java/Android%20Sapce/JunzResume1/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="account_pwd_null">账号或密码不能为空</string>
     <string name="account_pwd_wrong">账号或密码错误</string>
@@ -60,7 +60,7 @@
     <string name="user_name">账  号：</string>
     <string name="user_pwd">密  码：</string>
     <string name="year">年</string>
-    <!-- From: file:/E:/Java/Android%20Sapce/JunzResume2/app/src/main/res/values/styles.xml -->
+    <!-- From: file:/E:/Java/Android%20Sapce/JunzResume1/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
@@ -72,7 +72,7 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    <!-- From: file:/E:/Java/Android%20Sapce/JunzResume2/app/src/main/res/values/myTheme.xml -->
+    <!-- From: file:/E:/Java/Android%20Sapce/JunzResume1/app/src/main/res/values/myTheme.xml -->
     <eat-comment/>
     <style name="Theme.MyTheme.Spinner.NoTltleBar" parent="@android:style/Theme.NoTitleBar">
         <item name="android:spinnerStyle">?android:attr/dropDownSpinnerStyle</item>

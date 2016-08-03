@@ -52,7 +52,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * µÇÂ¼°´Å¥´¥·¢ÊÂ¼ş
+	 * ç™»å½•æŒ‰é’®è§¦å‘äº‹ä»¶
 	 */
 	private void loginAction() {
 		String accountText = account.getText().toString();
@@ -63,18 +63,20 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		}
 		boolean ifLogin = JunzResumeDB.getInstence(this).userLoginCheck(
 				accountText, passwordText);
-		// ÑéÖ¤ÊÇ·ñ¿ÉÒÔµÇÂ¼
+		// éªŒè¯æ˜¯å¦å¯ä»¥ç™»å½•,å¦‚æœå¯ä»¥åˆ™ä¼ idåˆ°ä¸‹ä¸ªactivity
 		if (ifLogin) {
 			Util.setUserId(JunzResumeDB.getInstence(this)
 					.getUserId(accountText));
-			startActivity(new Intent(this, MainActivity.class));
+			Intent intent = new Intent(this, MainActivity.class);
+			// intent.putExtra("id", Util.userId);
+			startActivity(intent);
 		} else {
 			Util.showToast(this, getString(R.string.account_pwd_wrong));
 		}
 	}
 
 	/**
-	 * ½øÈë×¢²á½çÃæ
+	 * è¿›å…¥æ³¨å†Œç•Œé¢
 	 */
 	private void registAction() {
 
@@ -82,13 +84,13 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * ±£´æ¼Ç×¡µÄÃÜÂë
+	 * ä¿å­˜è®°ä½çš„å¯†ç 
 	 */
 	private void remeberPwdSave() {
 		SharedPreferences.Editor editor = getSharedPreferences(
 				"remeber_password", MODE_PRIVATE).edit();
 		if (!remeberPwd.isChecked()) {
-			// Çå³ıÒ²Òªcommit
+			// æ¸…é™¤ä¹Ÿè¦commit
 			editor.clear();
 		} else {
 			String accountText = account.getText().toString();
@@ -100,7 +102,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * »ñµÃ±£´æµÄÕËºÅÃÜÂë
+	 * è·å¾—ä¿å­˜çš„è´¦å·å¯†ç 
 	 */
 	private void getRemberPwd() {
 		SharedPreferences pref = getSharedPreferences("remeber_password",

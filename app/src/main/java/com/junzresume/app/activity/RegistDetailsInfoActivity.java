@@ -82,7 +82,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	}
 
 	/**
-	 * ³õÊ¼»¯ÈÕÆÚÑ¡ÔñÆ÷
+	 * åˆå§‹åŒ–æ—¥æœŸé€‰æ‹©å™¨
 	 */
 
 	private void initSpinner() {
@@ -96,7 +96,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	}
 
 	/**
-	 * ÉèÖÃÄêÏÂÀ­±í
+	 * è®¾ç½®å¹´ä¸‹æ‹‰è¡¨
 	 * 
 	 * @param calendar
 	 */
@@ -115,7 +115,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	}
 
 	/**
-	 * ÉèÖÃÔÂ·İÏÂÀ­±í
+	 * è®¾ç½®æœˆä»½ä¸‹æ‹‰è¡¨
 	 * 
 	 * @param calendar
 	 * 
@@ -134,7 +134,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	}
 
 	/**
-	 * ¸ù¾İÄêÔÂ»ñµÃÔÂ·İÌìÊı
+	 * æ ¹æ®å¹´æœˆè·å¾—æœˆä»½å¤©æ•°
 	 * 
 	 * @param year
 	 * @param month
@@ -157,12 +157,12 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 
 	private void setDegreeSpinner() {
 		ArrayList<String> degree = new ArrayList<>();
-		degree.add("²©Ê¿");
-		degree.add("Ë¶Ê¿");
-		degree.add("±¾¿Æ");
-		degree.add("¸ßÖĞ");
-		degree.add("³õÖĞ");
-		degree.add("Ğ¡Ñ§");
+		degree.add("åšå£«");
+		degree.add("ç¡•å£«");
+		degree.add("æœ¬ç§‘");
+		degree.add("é«˜ä¸­");
+		degree.add("åˆä¸­");
+		degree.add("å°å­¦");
 
 		degreeAdapter = new ArrayAdapter<>(this,
 				R.layout.birthday_spinner_item, degree);
@@ -173,8 +173,8 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 
 	private void setIsMarriedSpinner() {
 		ArrayList<String> isMarried = new ArrayList<>();
-		isMarried.add("Î´»é");
-		isMarried.add("ÒÑ»é");
+		isMarried.add("æœªå©š");
+		isMarried.add("å·²å©š");
 		isMarryAdapter = new ArrayAdapter<>(this,
 				R.layout.birthday_spinner_item, isMarried);
 		isMarryAdapter
@@ -183,7 +183,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	}
 
 	/**
-	 * ¡°Íê³É¡±¶¯×÷
+	 * â€œå®Œæˆâ€åŠ¨ä½œ
 	 */
 	private void completeAction() {
 		String realName = realNameView.getText().toString();
@@ -197,7 +197,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 		String email = emailView.getText().toString();
 		String contactNumber = contactNumberView.getText().toString();
 
-		// ÅĞ¿Õ
+		// åˆ¤ç©º
 		if (TextUtils.isEmpty(realName) || gender == 0
 				|| TextUtils.isEmpty(birthday) || TextUtils.isEmpty(email)
 				|| TextUtils.isEmpty(contactNumber)
@@ -205,7 +205,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 			Util.showToast(this, getString(R.string.regist_detailinfo_null));
 			return;
 		}
-		// ÓÊÏä¸ñÊ½
+		// é‚®ç®±æ ¼å¼
 		if (!isEmailSyntaxMatch(email)) {
 			Util.showToast(this, getString(R.string.email_syntax_match));
 			return;
@@ -218,7 +218,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	}
 
 	/**
-	 * »ñµÃĞÔ±ğ´úºÅ
+	 * è·å¾—æ€§åˆ«ä»£å·
 	 * 
 	 * @return
 	 */
@@ -233,7 +233,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	}
 
 	/*
-	 * »ñµÃÉúÈÕ×Ö·û´® ¸ñÊ½Y/M/D
+	 * è·å¾—ç”Ÿæ—¥å­—ç¬¦ä¸² æ ¼å¼Y/M/D
 	 * 
 	 * @return
 	 */
@@ -248,16 +248,16 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	private int getIsMarried() {
 		String isMarried = isMarriedSpinner.getSelectedItem().toString();
 		int isMarriedId = 0;
-		if ("Î´»é".equals(isMarried)) {
+		if ("æœªå©š".equals(isMarried)) {
 			isMarriedId = 1;
-		} else if ("ÒÑ»é".equals(isMarried)) {
+		} else if ("å·²å©š".equals(isMarried)) {
 			isMarriedId = 2;
 		}
 		return isMarriedId;
 	}
 
 	/**
-	 * ÓÊÏä¸ñÊ½ÊÇ·ñÆ¥Åä
+	 * é‚®ç®±æ ¼å¼æ˜¯å¦åŒ¹é…
 	 * 
 	 * @param emailText
 	 * @return
@@ -271,7 +271,7 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int position,
 			long id) {
-		// ÔÂ·İµã»÷Ê±¼àÌı
+		// æœˆä»½ç‚¹å‡»æ—¶ç›‘å¬
 		int selectYear = Integer.parseInt(yearSpinner.getSelectedItem()
 				.toString());
 		int selectMonth = Integer.parseInt(monthSpinner.getSelectedItem()
