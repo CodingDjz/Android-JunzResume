@@ -24,12 +24,11 @@ import com.junzresume.app.db.JunzResumeDB;
 import com.junzresume.app.entity.ListViewItemCommon;
 import com.junzresume.app.util.Util;
 
-public class ProfessionalSkill extends Fragment implements OnClickListener {
-
+public class InterestingHobbies extends Fragment implements OnClickListener {
 	View view;
 	Context context;
-	TextView fragTitle;
 	ListView listView;
+	TextView fragTitle;
 	Button addBtn;
 	ArrayList<ListViewItemCommon> itemList;
 	ListViewCommonAdapter adapter;
@@ -48,7 +47,7 @@ public class ProfessionalSkill extends Fragment implements OnClickListener {
 		context = getActivity();
 		listView = (ListView) view.findViewById(R.id.arraylist_listview);
 		fragTitle = (TextView) view.findViewById(R.id.frag_title);
-		fragTitle.setText("专业技能");
+		fragTitle.setText("兴趣爱好");
 		addBtn = (Button) view.findViewById(R.id.add_btn);
 		addBtn.setOnClickListener(this);
 	}
@@ -57,14 +56,14 @@ public class ProfessionalSkill extends Fragment implements OnClickListener {
 	 * 初始化适配器
 	 */
 	private void initAdapter() {
-		itemList = JunzResumeDB.getInstence(context).getProSkillByid(
+		itemList = JunzResumeDB.getInstence(context).getInterestsByid(
 				Util.userId);
 		if (itemList == null) {
 			// TODO 练习使用snackbar
 			// Snackbar.make(rootlayout, "Hello SnackBar!",
 			// Snackbar.LENGTH_SHORT)
 			// show();
-			Util.showToast(context, "没有填写技能信息");
+			Util.showToast(context, "没有填写兴趣爱好");
 			itemList = new ArrayList<ListViewItemCommon>();
 		}
 
@@ -80,7 +79,7 @@ public class ProfessionalSkill extends Fragment implements OnClickListener {
 		final EditText inputEdit = new EditText(context);
 		inputEdit.setLines(3);
 
-		new AlertDialog.Builder(context).setTitle("请输入技能信息").setView(inputEdit)
+		new AlertDialog.Builder(context).setTitle("请输入兴趣爱好").setView(inputEdit)
 				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 
 					@Override
@@ -91,13 +90,13 @@ public class ProfessionalSkill extends Fragment implements OnClickListener {
 									Toast.LENGTH_SHORT).show();
 							return;
 						}
-						JunzResumeDB.getInstence(context).insertProSkill(
+						JunzResumeDB.getInstence(context).insertInterests(
 								Util.userId, skill);
 						// 先查询一下，使其不为null
 						itemList.clear();
 
 						itemList.addAll(JunzResumeDB.getInstence(context)
-								.getProSkillByid(Util.userId));
+								.getInterestsByid(Util.userId));
 						adapter.notifyDataSetChanged();
 					}
 				}).setNegativeButton("取消", null).show();
@@ -116,4 +115,5 @@ public class ProfessionalSkill extends Fragment implements OnClickListener {
 		}
 
 	}
+
 }

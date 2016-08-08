@@ -19,6 +19,16 @@ public class JunzResumeDatabaseHelper extends SQLiteOpenHelper {
 	private static final String CREATE_PRO_SKILL = "CREATE TABLE pro_skill("
 			+ "table_key INTEGER PRIMARY KEY," + "id INTEGER," + "skill TEXT)";
 
+	private static final String CREATE_INTERESTS_HOBBIES = "CREATE TABLE interests_hobbies("
+			+ "table_key INTEGER PRIMARY KEY,"
+			+ "id INTEGER,"
+			+ "interest TEXT)";
+
+	private static final String CTEATE_PROGRAME_EXPERIENCE = "CREATE TABLE programe_experience("
+			+ "id INTEGER,"
+			+ "table_key INTEGER PRIMARY KEY,"
+			+ "programe_name TEXT," + "programe_desp TEXT)";
+
 	private Context context;
 
 	public JunzResumeDatabaseHelper(Context context, String name,
@@ -35,6 +45,8 @@ public class JunzResumeDatabaseHelper extends SQLiteOpenHelper {
 		db.execSQL(CREATE_USER);
 		db.execSQL(CREATE_USER_INFO);
 		db.execSQL(CREATE_PRO_SKILL);
+		db.execSQL(CREATE_INTERESTS_HOBBIES);
+		db.execSQL(CTEATE_PROGRAME_EXPERIENCE);
 	}
 
 	@Override

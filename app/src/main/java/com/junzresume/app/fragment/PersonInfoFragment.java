@@ -1,6 +1,7 @@
 package com.junzresume.app.fragment;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,6 +56,10 @@ public class PersonInfoFragment extends Fragment {
 	 * 初始化信息到View
 	 */
 	private void initInfo() {
+		if (personInfo == null) {
+			Util.showToast(getActivity(), "没有填写详细信息");
+			return;
+		}
 		realName.setText(personInfo.getRealName());
 		int resId = 0;
 		if (personInfo.getGender() == 1) {
@@ -73,9 +78,9 @@ public class PersonInfoFragment extends Fragment {
 		((TextView) view.findViewById(R.id.info_nativeplace_text))
 				.setText(getString(R.string.regist_detail_native_place));
 		((TextView) view.findViewById(R.id.info_email_text))
-		.setText(getString(R.string.regist_detail_email));
+				.setText(getString(R.string.regist_detail_email));
 		((TextView) view.findViewById(R.id.info_contactnumber_text))
-		.setText(getString(R.string.regist_detail_contact_num));
-		
+				.setText(getString(R.string.regist_detail_contact_num));
+
 	}
 }

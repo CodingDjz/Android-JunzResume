@@ -19,8 +19,10 @@ import android.widget.ListView;
 
 import com.junzresume.app.R;
 import com.junzresume.app.adapter.DrawerAdapter;
+import com.junzresume.app.fragment.InterestingHobbies;
 import com.junzresume.app.fragment.PersonInfoFragment;
 import com.junzresume.app.fragment.ProfessionalSkill;
+import com.junzresume.app.fragment.ProgrameExperience;
 
 public class MainActivity extends BaseActivity implements OnClickListener,
 		OnItemClickListener {
@@ -52,6 +54,8 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 		fragList = new ArrayList<>();
 		fragList.add(new PersonInfoFragment());
 		fragList.add(new ProfessionalSkill());
+		fragList.add(new ProgrameExperience());
+		fragList.add(new InterestingHobbies());
 	}
 
 	private void setListener() {

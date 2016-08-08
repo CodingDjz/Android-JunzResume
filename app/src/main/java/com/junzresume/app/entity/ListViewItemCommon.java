@@ -1,12 +1,12 @@
 package com.junzresume.app.entity;
 
-public class ArrayListViewItem {
+public class ListViewItemCommon {
 
 	private int seqNum;
 	private int tableKey;
 	private String text;
 
-	public ArrayListViewItem(int seqNum, int index, String text) {
+	public ListViewItemCommon(int seqNum, int index, String text) {
 		super();
 		this.seqNum = seqNum;
 		this.tableKey = index;

@@ -25,7 +25,7 @@ public class DrawerAdapter extends BaseAdapter {
 		MenuItems.add(new DrawerItem(R.drawable.person_image, ""));
 		MenuItems.add(new DrawerItem(R.drawable.person_info, "个人信息"));
 		MenuItems.add(new DrawerItem(R.drawable.professional_skills, "专业技能"));
-		MenuItems.add(new DrawerItem(R.drawable.program_exp, "工作经验"));
+		MenuItems.add(new DrawerItem(R.drawable.program_exp, "项目经验"));
 		MenuItems.add(new DrawerItem(R.drawable.interesting_hobbies, "兴趣爱好"));
 	}
 

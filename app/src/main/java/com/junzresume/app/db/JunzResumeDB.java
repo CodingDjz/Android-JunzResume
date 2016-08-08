@@ -8,7 +8,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 
-import com.junzresume.app.entity.ArrayListViewItem;
+import com.junzresume.app.entity.ListViewItemCommon;
+import com.junzresume.app.entity.ListViewItemExp;
 import com.junzresume.app.entity.PersonInfo;
 
 public class JunzResumeDB {
@@ -150,9 +151,10 @@ public class JunzResumeDB {
 	public PersonInfo selectPersonInfo(int id) {
 		String sql = "SELECT * FROM user_info WHERE id=?";
 		Cursor cursor = db.rawQuery(sql, new String[] { String.valueOf(id) });
-		PersonInfo personInfo = new PersonInfo();
-		personInfo.setId(id);
+
 		if (cursor != null && cursor.moveToFirst()) {
+			PersonInfo personInfo = new PersonInfo();
+			personInfo.setId(id);
 			personInfo.setRealName(cursor.getString(cursor
 					.getColumnIndex("real_name")));
 			personInfo
@@ -173,9 +175,21 @@ public class JunzResumeDB {
 					.setEmail(cursor.getString(cursor.getColumnIndex("email")));
 			personInfo.setContactNumber(cursor.getInt(cursor
 					.getColumnIndex("contact_number")));
+			return personInfo;
 
 		}
-		return personInfo;
+		return null;
+	}
+
+	/**
+	 * 插入专业技能描述到数据库
+	 * 
+	 * @param id
+	 * @param skill
+	 */
+	public void insertProSkill(int id, String skill) {
+		String sql = "INSERT INTO pro_skill(id,skill)VALUES(?,?)";
+		db.execSQL(sql, new String[] { String.valueOf(id), skill });
 	}
 
 	/**
@@ -184,18 +198,97 @@ public class JunzResumeDB {
 	 * @param id
 	 * @return
 	 */
-	public ArrayList<ArrayListViewItem> getProSkillByid(int id) {
+	public ArrayList<ListViewItemCommon> getProSkillByid(int id) {
 		String sql = "SELECT table_key,skill FROM pro_skill WHERE id=" + id;
 		Cursor cursor = db.rawQuery(sql, null);
 		if (cursor != null && cursor.moveToFirst()) {
-			ArrayList<ArrayListViewItem> skillList = new ArrayList<>();
+			ArrayList<ListViewItemCommon> skillList = new ArrayList<>();
 			int count = 0;
 			do {
-				int tableKey = cursor.getInt(cursor.getColumnIndex("table_key"));
+				int tableKey = cursor
+						.getInt(cursor.getColumnIndex("table_key"));
 				String skill = cursor.getString(cursor.getColumnIndex("skill"));
-				skillList.add(new ArrayListViewItem(++count, tableKey, skill));
+				skillList.add(new ListViewItemCommon(++count, tableKey, skill));
 			} while (cursor.moveToNext());
 			return skillList;
+		}
+		return null;
+	}
+
+	/**
+	 * 插入兴趣爱好描述到数据库
+	 * 
+	 * @param id
+	 * @param interest
+	 */
+	public void insertInterests(int id, String interest) {
+		String sql = "INSERT INTO interests_hobbies(id,interest)VALUES(?,?)";
+		db.execSQL(sql, new String[] { String.valueOf(id), interest });
+	}
+
+	/**
+	 * 通过ID查询兴趣爱好，返回List集合
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public ArrayList<ListViewItemCommon> getInterestsByid(int id) {
+		String sql = "SELECT table_key,interest FROM interests_hobbies WHERE id="
+				+ id;
+		Cursor cursor = db.rawQuery(sql, null);
+		if (cursor != null && cursor.moveToFirst()) {
+			ArrayList<ListViewItemCommon> interestList = new ArrayList<>();
+			int count = 0;
+			do {
+				int tableKey = cursor
+						.getInt(cursor.getColumnIndex("table_key"));
+				String interest = cursor.getString(cursor
+						.getColumnIndex("interest"));
+				interestList.add(new ListViewItemCommon(++count, tableKey,
+						interest));
+			} while (cursor.moveToNext());
+			return interestList;
+		}
+		return null;
+	}
+
+	/**
+	 * 插入项目经验
+	 * 
+	 * @param id
+	 * @param programeName
+	 * @param programeDesp
+	 */
+	public void insertInterests(int id, String programeName, String programeDesp) {
+		String sql = "INSERT INTO programe_experience(id,programe_name,programe_desp)VALUES(?,?,?)";
+		db.execSQL(sql, new String[] { String.valueOf(id), programeName,
+				programeDesp });
+	}
+
+	/**
+	 * 通过用户ID查询项目经验返回集合
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public ArrayList<ListViewItemExp> getProgrameExpByid(int id) {
+		String sql = "SELECT table_key,programe_name,programe_desp FROM programe_experience WHERE id="
+				+ id;
+		Cursor cursor = db.rawQuery(sql, null);
+		if (cursor != null && cursor.moveToFirst()) {
+			ArrayList<ListViewItemExp> pExpList = new ArrayList<>();
+			int count = 0;
+			do {
+				int tableKey = cursor
+						.getInt(cursor.getColumnIndex("table_key"));
+				String pName = cursor.getString(cursor
+						.getColumnIndex("programe_name"));
+				String pDesp = cursor.getString(cursor
+						.getColumnIndex("programe_desp"));
+				pExpList.add(new ListViewItemExp(++count, tableKey, pName,
+						pDesp));
+			} while (cursor.moveToNext());
+			return pExpList;
 		}
 		return null;
 	}

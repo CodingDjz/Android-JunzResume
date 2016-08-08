@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    android:padding="10sp" >
 
     <TextView
         android:id="@+id/seq_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1."
         android:textColor="#fff"
         android:textSize="20sp" />
 
@@ -16,7 +16,6 @@
         android:id="@+id/item_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="了解Java与数据结构的哈哈哈哈啊哈哈哈哈"
         android:textColor="#fff"
         android:textSize="20sp" />
 

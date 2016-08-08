@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000" >
+
+    <TextView
+        android:id="@+id/frag_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:textColor="#fff" />
+
+    <RelativeLayout
+        android:id="@+id/skillfragment_btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10sp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/add_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/style_add_btn" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/arraylist_listview"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/skillfragment_btn_layout"
+        android:layout_below="@id/frag_title"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10sp" >
+    </ListView>
+
+</RelativeLayout>
