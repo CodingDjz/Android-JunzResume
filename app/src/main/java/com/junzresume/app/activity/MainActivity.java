@@ -23,6 +23,7 @@ import com.junzresume.app.fragment.InterestingHobbies;
 import com.junzresume.app.fragment.PersonInfoFragment;
 import com.junzresume.app.fragment.ProfessionalSkill;
 import com.junzresume.app.fragment.ProgrameExperience;
+import com.junzresume.app.fragment.SettingFragment;
 
 public class MainActivity extends BaseActivity implements OnClickListener,
 		OnItemClickListener {
@@ -52,6 +53,7 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 		drawerListView.setAdapter(adapter);
 		// 将列表Fragment添加到List
 		fragList = new ArrayList<>();
+		fragList.add(new SettingFragment());
 		fragList.add(new PersonInfoFragment());
 		fragList.add(new ProfessionalSkill());
 		fragList.add(new ProgrameExperience());
@@ -89,10 +91,9 @@ public class MainActivity extends BaseActivity implements OnClickListener,
 	 * @param position
 	 */
 	public void selectAction(int position) {
-
 		FragmentManager fragmentManager = getFragmentManager();
 		FragmentTransaction transaction = fragmentManager.beginTransaction();
-		transaction.replace(R.id.content_framelayout, fragList.get(--position))
+		transaction.replace(R.id.content_framelayout, fragList.get(position))
 				.commit();
 
 		drawerListView.setItemChecked(position, true);

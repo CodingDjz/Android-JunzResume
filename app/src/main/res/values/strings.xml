@@ -48,5 +48,7 @@
     <string name="professional">专&#8195;&#8195;业：</string>
     <string name="is_married">婚姻状态：</string>
     <string name="school">学&#8195;&#8195;校</string>
+    <string name="exp_name_hint">项目名称</string>
+    <string name="exp_desp_hint">项目描述</string>
 
 </resources>

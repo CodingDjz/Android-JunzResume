@@ -259,7 +259,8 @@ public class JunzResumeDB {
 	 * @param programeName
 	 * @param programeDesp
 	 */
-	public void insertInterests(int id, String programeName, String programeDesp) {
+	public void insertProgrameExp(int id, String programeName,
+			String programeDesp) {
 		String sql = "INSERT INTO programe_experience(id,programe_name,programe_desp)VALUES(?,?,?)";
 		db.execSQL(sql, new String[] { String.valueOf(id), programeName,
 				programeDesp });

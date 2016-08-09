@@ -13,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -44,7 +43,6 @@ public class RegistDetailsInfoActivity extends BaseActivity implements
 	ArrayAdapter<String> dateAdapter;
 	ArrayAdapter<String> degreeAdapter;
 	ArrayAdapter<String> isMarryAdapter;
-	DatePicker datePicker;
 	Calendar calendar;
 
 	@Override

@@ -36,8 +36,7 @@ public class InterestingHobbies extends Fragment implements OnClickListener {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.fragment_common,
-				container, false);
+		view = inflater.inflate(R.layout.fragment_common, container, false);
 		init();
 		initAdapter();
 		return view;
@@ -100,7 +99,6 @@ public class InterestingHobbies extends Fragment implements OnClickListener {
 						adapter.notifyDataSetChanged();
 					}
 				}).setNegativeButton("È¡Ïû", null).show();
-
 	}
 
 	@Override

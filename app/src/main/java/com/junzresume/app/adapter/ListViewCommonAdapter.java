@@ -29,7 +29,7 @@ public class ListViewCommonAdapter extends ArrayAdapter<ListViewItemCommon> {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ListViewItemCommon item = (ListViewItemCommon) getItem(position);
+		ListViewItemCommon item = getItem(position);
 		View view;
 		ViewHolder viewHolder = null;
 		if (convertView == null) {

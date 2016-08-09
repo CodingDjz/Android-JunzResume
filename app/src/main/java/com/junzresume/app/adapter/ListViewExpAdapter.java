@@ -1,9 +1,9 @@
 package com.junzresume.app.adapter;
 
-import java.io.SequenceInputStream;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +42,13 @@ public class ListViewExpAdapter extends ArrayAdapter<ListViewItemExp> {
 			view = convertView;
 			viewHolder = (ViewHolder) view.getTag();
 		}
-		viewHolder.seq.setText(item.getSeqNum());
+		if (position % 2 == 0) {
+			view.setBackgroundColor(Color.parseColor("#373737"));
+		} else {
+			view.setBackgroundColor(Color.parseColor("#000000"));
+
+		}
+		viewHolder.seq.setText(String.valueOf(item.getSeqNum()) + ".");
 		viewHolder.pName.setText(item.getProgrameName());
 		viewHolder.pDesp.setText(item.getProgrameDesp());
 		return view;
