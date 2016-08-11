@@ -293,4 +293,27 @@ public class JunzResumeDB {
 		}
 		return null;
 	}
+
+	/**
+	 * ¸üÐÂÃÜÂë
+	 * 
+	 * @param id
+	 * @param oldPwd
+	 * @param newPwd
+	 * @return
+	 */
+	public boolean updatePwd(int id, String oldPwd, String newPwd) {
+		String sPwd = "SELECT password FROM user WHERE id = ?";
+		String dbOldPwd = null;
+		Cursor cursor = db.rawQuery(sPwd, new String[] { String.valueOf(id) });
+		if (cursor != null && cursor.moveToFirst()) {
+			dbOldPwd = cursor.getString(cursor.getColumnIndex("password"));
+		}
+		if (oldPwd.equals(dbOldPwd)) {
+			String updatePwd = "UPDATE user SET password=? WHERE id = ?";
+			db.execSQL(updatePwd, new String[] { newPwd, String.valueOf(id) });
+			return true;
+		}
+		return false;
+	}
 }

@@ -12,7 +12,6 @@
             android:id="@+id/dialog_exp_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            d=""
             android:hint="@string/exp_name_hint" />
     </LinearLayout>
 

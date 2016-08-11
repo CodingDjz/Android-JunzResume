@@ -102,13 +102,11 @@ public class ProgrameExperience extends Fragment implements OnClickListener {
 
 						if (TextUtils.isEmpty(nameStr)
 								|| TextUtils.isEmpty(despStr)) {
-							Toast.makeText(context, "输入不能为空",
-									Toast.LENGTH_SHORT).show();
+							Util.showToast(context, "输入不能为空");
 							return;
 						}
 						JunzResumeDB.getInstence(context).insertProgrameExp(
 								Util.userId, nameStr, despStr);
-						// 先查询一下，使其不为null
 						itemList.clear();
 						/**
 						 * 重新查询并更新List
@@ -128,8 +126,6 @@ public class ProgrameExperience extends Fragment implements OnClickListener {
 			addBtnAction();
 			break;
 
-		default:
-			break;
 		}
 
 	}
