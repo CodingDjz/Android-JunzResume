@@ -48,23 +48,23 @@ public class ProfessionalSkill extends Fragment implements OnClickListener {
 		context = getActivity();
 		listView = (ListView) view.findViewById(R.id.arraylist_listview);
 		fragTitle = (TextView) view.findViewById(R.id.frag_title);
-		fragTitle.setText("×¨Òµ¼¼ÄÜ");
+		fragTitle.setText("ä¸“ä¸šæŠ€èƒ½");
 		addBtn = (Button) view.findViewById(R.id.add_btn);
 		addBtn.setOnClickListener(this);
 	}
 
 	/**
-	 * ³õÊ¼»¯ÊÊÅäÆ÷
+	 * åˆå§‹åŒ–é€‚é…å™¨
 	 */
 	private void initAdapter() {
 		itemList = JunzResumeDB.getInstence(context).getProSkillByid(
 				Util.userId);
 		if (itemList == null) {
-			// TODO Á·Ï°Ê¹ÓÃsnackbar
+			// TODO ç»ƒä¹ ä½¿ç”¨snackbar
 			// Snackbar.make(rootlayout, "Hello SnackBar!",
 			// Snackbar.LENGTH_SHORT)
 			// show();
-			Util.showToast(context, "Ã»ÓĞÌîĞ´¼¼ÄÜĞÅÏ¢");
+			Util.showToast(context, "æ²¡æœ‰å¡«å†™æŠ€èƒ½ä¿¡æ¯");
 			itemList = new ArrayList<ListViewItemCommon>();
 		}
 
@@ -74,33 +74,33 @@ public class ProfessionalSkill extends Fragment implements OnClickListener {
 	}
 
 	/**
-	 * µã»÷Ìí¼Ó°´Å¥ÏìÓ¦
+	 * ç‚¹å‡»æ·»åŠ æŒ‰é’®å“åº”
 	 */
 	private void addBtnAction() {
 		final EditText inputEdit = new EditText(context);
 		inputEdit.setLines(3);
 
-		new AlertDialog.Builder(context).setTitle("ÇëÊäÈë¼¼ÄÜĞÅÏ¢").setView(inputEdit)
-				.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		new AlertDialog.Builder(context).setTitle("è¯·è¾“å…¥æŠ€èƒ½ä¿¡æ¯").setView(inputEdit)
+				.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						String skill = inputEdit.getText().toString();
 						if (TextUtils.isEmpty(skill)) {
-							Toast.makeText(context, "ÊäÈë²»ÄÜÎª¿Õ",
+							Toast.makeText(context, "è¾“å…¥ä¸èƒ½ä¸ºç©º",
 									Toast.LENGTH_SHORT).show();
 							return;
 						}
 						JunzResumeDB.getInstence(context).insertProSkill(
 								Util.userId, skill);
-						// ÏÈ²éÑ¯Ò»ÏÂ£¬Ê¹Æä²»Îªnull
+						// å…ˆæŸ¥è¯¢ä¸€ä¸‹ï¼Œä½¿å…¶ä¸ä¸ºnull
 						itemList.clear();
 
 						itemList.addAll(JunzResumeDB.getInstence(context)
 								.getProSkillByid(Util.userId));
 						adapter.notifyDataSetChanged();
 					}
-				}).setNegativeButton("È¡Ïû", null).show();
+				}).setNegativeButton("å–æ¶ˆ", null).show();
 
 	}
 

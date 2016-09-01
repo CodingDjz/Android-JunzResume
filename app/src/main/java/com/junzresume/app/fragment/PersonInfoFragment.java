@@ -53,11 +53,11 @@ public class PersonInfoFragment extends Fragment {
 	}
 
 	/**
-	 * 初始化信息到View
+	 * 鍒濆鍖栦俊鎭埌View
 	 */
 	private void initInfo() {
 		if (personInfo == null) {
-			Util.showToast(getActivity(), "没有填写详细信息");
+			Util.showToast(getActivity(), "娌℃湁濉啓璇︾粏淇℃伅");
 			return;
 		}
 		realName.setText(personInfo.getRealName());

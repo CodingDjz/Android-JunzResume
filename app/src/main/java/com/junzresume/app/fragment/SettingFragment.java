@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.junzresume.app.R;
 import com.junzresume.app.activity.RegistDetailsInfoActivity;
@@ -27,7 +26,7 @@ public class SettingFragment extends Fragment implements
 	TextView comDetail;
 	TextView changePwd;
 	TextView authorInfo;
-	final Activity activity = getActivity();
+	Activity activity;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,6 +46,7 @@ public class SettingFragment extends Fragment implements
 				.findViewById(R.id.fragment_complete_detailinfo);
 		changePwd = (TextView) view.findViewById(R.id.fragment_exchange_pwd);
 		authorInfo = (TextView) view.findViewById(R.id.fragment_about_author);
+		activity = getActivity();
 	}
 
 	private void initListener() {
@@ -64,25 +64,27 @@ public class SettingFragment extends Fragment implements
 			break;
 		case R.id.fragment_exchange_pwd:
 			changePwdAction();
+			break;
 		case R.id.fragment_about_author:
 			aboutAuthor();
+			break;
 		}
 	}
 
 	/*
-	 * ÍêÉÆĞÅÏ¢°´Å¥ÏìÓ¦
+	 * å®Œå–„ä¿¡æ¯æŒ‰é’®å“åº”
 	 */
 	private void completeDetialInfoAction() {
 		if (JunzResumeDB.getInstence(getActivity()).selectPersonInfo(
 				Util.userId) != null) {
-			Util.showToast(getActivity(), "ÒÑÌîĞ´¹ıÏêÏ¸ĞÅÏ¢");
+			Util.showToast(getActivity(), "å·²å¡«å†™è¿‡è¯¦ç»†ä¿¡æ¯");
 			return;
 		}
 		startActivity(new Intent(getActivity(), RegistDetailsInfoActivity.class));
 	}
 
 	/*
-	 * ¸ü¸ÄÃÜÂë°´Å¥ÏìÓ¦
+	 * æ›´æ”¹å¯†ç æŒ‰é’®å“åº”
 	 */
 	private void changePwdAction() {
 
@@ -94,8 +96,8 @@ public class SettingFragment extends Fragment implements
 				.findViewById(R.id.dialog_new_pwd);
 		final EditText confirmPwd = (EditText) view
 				.findViewById(R.id.dialog_confirm_pwd);
-		new AlertDialog.Builder(activity).setTitle("¸ü¸ÄÃÜÂë").setView(view)
-				.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+		new AlertDialog.Builder(activity).setTitle("æ›´æ”¹å¯†ç ").setView(view)
+				.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -106,29 +108,30 @@ public class SettingFragment extends Fragment implements
 						if (TextUtils.isEmpty(oldPwdStr)
 								|| TextUtils.isEmpty(newPwdStr)
 								|| TextUtils.isEmpty(confirmPwdStr)) {
-							Util.showToast(activity, "ÃÜÂë²»ÄÜÎª¿Õ");
+							Util.showToast(activity, "å¯†ç ä¸èƒ½ä¸ºç©º");
 							return;
 						}
-						if (newPwdStr.equals(confirmPwdStr)) {
-							Util.showToast(activity, "ĞÂÃÜÂë²»Ò»ÖÂ");
+						if (!newPwdStr.equals(confirmPwdStr)) {
+							Util.showToast(activity, "æ–°å¯†ç ä¸ä¸€è‡´");
+							return;
 						}
 						boolean isUpdate = JunzResumeDB.getInstence(activity)
 								.updatePwd(Util.userId, oldPwdStr, newPwdStr);
 						if (isUpdate) {
-							Util.showToast(activity, "ÃÜÂë¸ü¸Ä³É¹¦");
+							Util.showToast(activity, "å¯†ç æ›´æ”¹æˆåŠŸ");
 						} else {
-							Util.showToast(activity, "ÃÜÂë¸ü¸ÄÊ§°Ü");
+							Util.showToast(activity, "å¯†ç æ›´æ”¹å¤±è´¥");
 						}
 
 					}
-				}).setNegativeButton("È¡Ïû", null).show();
+				}).setNegativeButton("å–æ¶ˆ", null).show();
 	}
 
 	/*
-	 * ¹ØÓÚ×÷Õßµã»÷ÏìÓ¦
+	 * å…³äºä½œè€…ç‚¹å‡»å“åº”
 	 */
 	public void aboutAuthor() {
-		new AlertDialog.Builder(activity).setTitle("¸ü¸ÄÃÜÂë").setView(view)
-				.setNegativeButton("È·¶¨", null).show();
+		new AlertDialog.Builder(activity).setTitle("æ›´æ”¹å¯†ç ").setView(view)
+				.setNegativeButton("ç¡®å®š", null).show();
 	}
 }

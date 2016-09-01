@@ -38,7 +38,7 @@ public class JunzResumeDatabaseHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * Êı¾İ¿â±»´´½¨Ê±µ÷ÓÃ
+	 * æ•°æ®åº“è¢«åˆ›å»ºæ—¶è°ƒç”¨
 	 */
 	@Override
 	public void onCreate(SQLiteDatabase db) {

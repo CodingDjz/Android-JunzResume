@@ -1,7 +1,7 @@
 package com.junzresume.app.entity;
 
 /*
- * ¶ÔÓ¦user_info±í
+ * å¯¹åº”user_infoè¡¨
  */
 
 public class PersonInfo {

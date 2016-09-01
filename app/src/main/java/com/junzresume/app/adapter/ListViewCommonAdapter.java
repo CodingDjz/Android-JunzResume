@@ -43,10 +43,10 @@ public class ListViewCommonAdapter extends ArrayAdapter<ListViewItemCommon> {
 			view = convertView;
 			viewHolder = (ViewHolder) view.getTag();
 		}
-		// 条状上色
+		// 鏉＄姸涓婅壊
 		if (position % 2 == 0) {
 			view.setBackgroundColor(Color.parseColor("#373737"));
-		} else {// 必须写此分支，因为convertView可能已经被设置过
+		} else {// 蹇呴』鍐欐鍒嗘敮锛屽洜涓篶onvertView鍙兘宸茬粡琚缃繃
 			view.setBackgroundColor(Color.parseColor("#000000"));
 
 		}

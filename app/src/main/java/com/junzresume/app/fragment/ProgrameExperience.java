@@ -52,24 +52,24 @@ public class ProgrameExperience extends Fragment implements OnClickListener {
 		context = getActivity();
 		listView = (ListView) view.findViewById(R.id.arraylist_listview);
 		fragTitle = (TextView) view.findViewById(R.id.frag_title);
-		fragTitle.setText("ÏîÄ¿¾­Ñé");
+		fragTitle.setText("é¡¹ç›®ç»éªŒ");
 		addBtn = (Button) view.findViewById(R.id.add_btn);
 		addBtn.setOnClickListener(this);
 	}
 
 	/**
-	 * ³õÊ¼»¯ÊÊÅäÆ÷
+	 * åˆå§‹åŒ–é€‚é…å™¨
 	 */
 	private void initAdapter() {
 		itemList = JunzResumeDB.getInstence(context).getProgrameExpByid(
 				Util.userId);
 		if (itemList == null) {
-			// TODO Á·Ï°Ê¹ÓÃsnackbar
+			// TODO ç»ƒä¹ ä½¿ç”¨snackbar
 			// Snackbar.make(rootlayout, "Hello SnackBar!",
 			// Snackbar.LENGTH_SHORT)
 			// show();
-			Util.showToast(context, "Ã»ÓĞÌîĞ´ÏîÄ¿ĞÅÏ¢");
-			// Ã»ÓĞĞÅÏ¢Ò²Òª´´½¨ĞÂµÄ£¬·½±ãÖ±½ÓÌí¼Ó
+			Util.showToast(context, "æ²¡æœ‰å¡«å†™é¡¹ç›®ä¿¡æ¯");
+			// æ²¡æœ‰ä¿¡æ¯ä¹Ÿè¦åˆ›å»ºæ–°çš„ï¼Œæ–¹ä¾¿ç›´æ¥æ·»åŠ 
 			itemList = new ArrayList<ListViewItemExp>();
 		}
 
@@ -79,7 +79,7 @@ public class ProgrameExperience extends Fragment implements OnClickListener {
 	}
 
 	/**
-	 * µã»÷Ìí¼Ó°´Å¥ÏìÓ¦
+	 * ç‚¹å‡»æ·»åŠ æŒ‰é’®å“åº”
 	 */
 	private void addBtnAction() {
 		Activity activity = getActivity();
@@ -90,9 +90,9 @@ public class ProgrameExperience extends Fragment implements OnClickListener {
 		final EditText pDesp = (EditText) dialogView
 				.findViewById(R.id.dialog_exp_desp);
 		pDesp.setLines(5);
-		new AlertDialog.Builder(context).setTitle("ÇëÊäÈëÏîÄ¿ĞÅÏ¢")
+		new AlertDialog.Builder(context).setTitle("è¯·è¾“å…¥é¡¹ç›®ä¿¡æ¯")
 				.setView(dialogView)
-				.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+				.setPositiveButton("ç¡®å®š", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -102,20 +102,20 @@ public class ProgrameExperience extends Fragment implements OnClickListener {
 
 						if (TextUtils.isEmpty(nameStr)
 								|| TextUtils.isEmpty(despStr)) {
-							Util.showToast(context, "ÊäÈë²»ÄÜÎª¿Õ");
+							Util.showToast(context, "è¾“å…¥ä¸èƒ½ä¸ºç©º");
 							return;
 						}
 						JunzResumeDB.getInstence(context).insertProgrameExp(
 								Util.userId, nameStr, despStr);
 						itemList.clear();
 						/**
-						 * ÖØĞÂ²éÑ¯²¢¸üĞÂList
+						 * é‡æ–°æŸ¥è¯¢å¹¶æ›´æ–°List
 						 */
 						itemList.addAll(JunzResumeDB.getInstence(context)
 								.getProgrameExpByid(Util.userId));
 						adapter.notifyDataSetChanged();
 					}
-				}).setNegativeButton("È¡Ïû", null).show();
+				}).setNegativeButton("å–æ¶ˆ", null).show();
 
 	}
 

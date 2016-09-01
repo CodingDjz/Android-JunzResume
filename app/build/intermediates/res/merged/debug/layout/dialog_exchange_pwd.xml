@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8sp"
         android:hint="原密码"
+        android:inputType="textPassword"
         android:textSize="20sp" />
 
     <EditText
@@ -17,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="新密码"
+        android:inputType="textPassword"
         android:textSize="20sp" />
 
     <EditText
@@ -24,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="确认密码"
+        android:inputType="textPassword"
         android:textSize="20sp" />
 
-</LinearLayout><!-- From: file:/E:/Java/Android%20Sapce/JunzResume1/app/src/main/res/layout/dialog_exchange_pwd.xml -->
+</LinearLayout><!-- From: file:/E:/Java/Android%20Sapce/JunzResume/app/src/main/res/layout/dialog_exchange_pwd.xml -->

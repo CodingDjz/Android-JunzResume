@@ -8,7 +8,7 @@ public class Util {
 	public static int userId;
 
 	/**
-	 * 显示Toast 不会重复显示
+	 * 鏄剧ずToast 涓嶄細閲嶅鏄剧ず
 	 * 
 	 * @param context
 	 * @param text

@@ -48,7 +48,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * °´Å¥¼àÌı·½·¨
+	 * æŒ‰é’®ç›‘å¬æ–¹æ³•
 	 */
 	@Override
 	public void onClick(View v) {
@@ -64,7 +64,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * ¡°ÖØÖÃ¡±°´Å¥´¥·¢ÊÂ¼ş
+	 * â€œé‡ç½®â€æŒ‰é’®è§¦å‘äº‹ä»¶
 	 */
 	private void resetAction() {
 		account.setText("");
@@ -73,43 +73,43 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * ¡°×¢²á¡±°´Å¥´¥·¢ÊÂ¼ş
+	 * â€œæ³¨å†Œâ€æŒ‰é’®è§¦å‘äº‹ä»¶
 	 */
 	private void registAction() {
 		String accountText = account.getText().toString();
 		String passwordText = password.getText().toString();
 		String confirmText = confirmPwd.getText().toString();
-		// ÊÇ·ñÓĞ¿ÕÖµ
+		// æ˜¯å¦æœ‰ç©ºå€¼
 		if ("".equals(accountText) || "".equals(passwordText)
 				|| "".equals(confirmText)) {
 			Util.showToast(this, getString(R.string.registinfo_null));
 			return;
 		}
-		// ÓÃ»§ÃûÕıÔòÆ¥Åä
+		// ç”¨æˆ·åæ­£åˆ™åŒ¹é…
 		if (!isAccountSyntaxMatch(accountText)) {
 			Util.showToast(this, getString(R.string.account_syntax_unmatch));
 			return;
 		}
-		// ÃÜÂëÊÇ·ñÏàµÈ
+		// å¯†ç æ˜¯å¦ç›¸ç­‰
 		if (!passwordText.equals(confirmText)) {
 			Util.showToast(this, getString(R.string.password_not_match));
 			return;
 		}
-		// ÓÃ»§ÊÇ·ñÒÑ´æÔÚ
+		// ç”¨æˆ·æ˜¯å¦å·²å­˜åœ¨
 		boolean canRegist = JunzResumeDB.getInstence(this).userIsRegist(
 				accountText);
 		if (!canRegist) {
 			Util.showToast(this, getString(R.string.exist_account));
 			return;
 		}
-		// ×¢²áĞÅÏ¢Ğ´ÈëÊı¾İ¿â
+		// æ³¨å†Œä¿¡æ¯å†™å…¥æ•°æ®åº“
 		JunzResumeDB.getInstence(this).userRegist(accountText, passwordText);
 		Util.setUserId(JunzResumeDB.getInstence(this).getUserId(accountText));
 		registAlert.show();
 	}
 
 	/**
-	 * ³õÊ¼»¯×¢²áÑ¡Ôñ¿ò
+	 * åˆå§‹åŒ–æ³¨å†Œé€‰æ‹©æ¡†
 	 */
 
 	private void initRegistCompleteAlert() {
@@ -141,7 +141,7 @@ public class RegistActivity extends BaseActivity implements OnClickListener {
 	}
 
 	/**
-	 * ÓÃ»§Ãû¸ñÊ½ÊÇ·ñÆ¥Åä
+	 * ç”¨æˆ·åæ ¼å¼æ˜¯å¦åŒ¹é…
 	 * 
 	 * @param accountText
 	 * @return

@@ -23,10 +23,10 @@ public class DrawerAdapter extends BaseAdapter {
 		this.context = context;
 		MenuItems = new ArrayList<>();
 		MenuItems.add(new DrawerItem(R.drawable.person_image, ""));
-		MenuItems.add(new DrawerItem(R.drawable.person_info, "¸öÈËĞÅÏ¢"));
-		MenuItems.add(new DrawerItem(R.drawable.professional_skills, "×¨Òµ¼¼ÄÜ"));
-		MenuItems.add(new DrawerItem(R.drawable.program_exp, "ÏîÄ¿¾­Ñé"));
-		MenuItems.add(new DrawerItem(R.drawable.interesting_hobbies, "ĞËÈ¤°®ºÃ"));
+		MenuItems.add(new DrawerItem(R.drawable.person_info, "ä¸ªäººä¿¡æ¯"));
+		MenuItems.add(new DrawerItem(R.drawable.professional_skills, "ä¸“ä¸šæŠ€èƒ½"));
+		MenuItems.add(new DrawerItem(R.drawable.program_exp, "é¡¹ç›®ç»éªŒ"));
+		MenuItems.add(new DrawerItem(R.drawable.interesting_hobbies, "å…´è¶£çˆ±å¥½"));
 	}
 
 	@Override

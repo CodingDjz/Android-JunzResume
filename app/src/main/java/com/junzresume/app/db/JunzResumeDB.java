@@ -32,11 +32,11 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * ÑéÖ¤ÊÇ·ñµÇÂ¼³É¹¦
+	 * éªŒè¯æ˜¯å¦ç™»å½•æˆåŠŸ
 	 * 
 	 * @param account
 	 * @param password
-	 * @return ÓÃ»§ÃûÃÜÂëÊÇ·ñÕıÈ·
+	 * @return ç”¨æˆ·åå¯†ç æ˜¯å¦æ­£ç¡®
 	 */
 	public boolean userLoginCheck(String account, String password) {
 		Cursor cursor = getResultByAccountCheck(account);
@@ -53,7 +53,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * ÓÃ»§ÊÇ·ñ´æÔÚ
+	 * ç”¨æˆ·æ˜¯å¦å­˜åœ¨
 	 * 
 	 * @return
 	 */
@@ -65,7 +65,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * ½«ÓÃ»§ÃûÃÜÂëĞ´ÈëÊı¾İ¿â
+	 * å°†ç”¨æˆ·åå¯†ç å†™å…¥æ•°æ®åº“
 	 * 
 	 * @param account
 	 * @param password
@@ -77,7 +77,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * »ñµÃÓÃ»§Ö÷¼üID
+	 * è·å¾—ç”¨æˆ·ä¸»é”®ID
 	 * 
 	 * @param account
 	 * @return
@@ -93,7 +93,7 @@ public class JunzResumeDB {
 	}
 
 	/*
-	 * Í¨¹ıÓÃ»§Ãû²éÑ¯ÃÜÂë£¬·µ»Ø²éÑ¯½á¹ûCursor
+	 * é€šè¿‡ç”¨æˆ·åæŸ¥è¯¢å¯†ç ï¼Œè¿”å›æŸ¥è¯¢ç»“æœCursor
 	 */
 	public Cursor getResultByAccountCheck(String account) {
 		String sql = "SELECT password FROM USER WHERE account=" + "'" + account
@@ -102,7 +102,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * ÓÃ»§ÏêÏ¸ĞÅÏ¢²åÈëÊı¾İ¿â
+	 * ç”¨æˆ·è¯¦ç»†ä¿¡æ¯æ’å…¥æ•°æ®åº“
 	 * 
 	 * @param id
 	 * @param realName
@@ -143,7 +143,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * Í¨¹ıID²éÑ¯ÓÃ»§ÏêÏ¸ĞÅÏ¢£¬·µ»Ø¶ÔÓ¦ÊµÌåÀà
+	 * é€šè¿‡IDæŸ¥è¯¢ç”¨æˆ·è¯¦ç»†ä¿¡æ¯ï¼Œè¿”å›å¯¹åº”å®ä½“ç±»
 	 * 
 	 * @param id
 	 * @return
@@ -182,7 +182,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * ²åÈë×¨Òµ¼¼ÄÜÃèÊöµ½Êı¾İ¿â
+	 * æ’å…¥ä¸“ä¸šæŠ€èƒ½æè¿°åˆ°æ•°æ®åº“
 	 * 
 	 * @param id
 	 * @param skill
@@ -193,7 +193,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * Í¨¹ıID²éÑ¯×¨Òµ¼¼ÄÜ£¬·µ»ØList¼¯ºÏ
+	 * é€šè¿‡IDæŸ¥è¯¢ä¸“ä¸šæŠ€èƒ½ï¼Œè¿”å›Listé›†åˆ
 	 * 
 	 * @param id
 	 * @return
@@ -216,7 +216,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * ²åÈëĞËÈ¤°®ºÃÃèÊöµ½Êı¾İ¿â
+	 * æ’å…¥å…´è¶£çˆ±å¥½æè¿°åˆ°æ•°æ®åº“
 	 * 
 	 * @param id
 	 * @param interest
@@ -227,7 +227,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * Í¨¹ıID²éÑ¯ĞËÈ¤°®ºÃ£¬·µ»ØList¼¯ºÏ
+	 * é€šè¿‡IDæŸ¥è¯¢å…´è¶£çˆ±å¥½ï¼Œè¿”å›Listé›†åˆ
 	 * 
 	 * @param id
 	 * @return
@@ -253,7 +253,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * ²åÈëÏîÄ¿¾­Ñé
+	 * æ’å…¥é¡¹ç›®ç»éªŒ
 	 * 
 	 * @param id
 	 * @param programeName
@@ -267,7 +267,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * Í¨¹ıÓÃ»§ID²éÑ¯ÏîÄ¿¾­Ñé·µ»Ø¼¯ºÏ
+	 * é€šè¿‡ç”¨æˆ·IDæŸ¥è¯¢é¡¹ç›®ç»éªŒè¿”å›é›†åˆ
 	 * 
 	 * @param id
 	 * @return
@@ -295,7 +295,7 @@ public class JunzResumeDB {
 	}
 
 	/**
-	 * ¸üĞÂÃÜÂë
+	 * æ›´æ–°å¯†ç 
 	 * 
 	 * @param id
 	 * @param oldPwd
